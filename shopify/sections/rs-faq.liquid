@@ -1,0 +1,64 @@
+{% assign lastSeparator = '' %}
+{% capture faqs %}
+{
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        {% if lastSeparator == 'question' -%} }, {%- endif %}
+        {{- block.settings.title | json -}}: {
+      {%- when 'question' -%}
+        {% if lastSeparator == 'question' -%} , {%- endif %}
+        {{- block.settings.question | json -}}: {{- block.settings.answer | json -}}
+    {%- endcase -%}
+  {%- if forloop.last == true -%} } {%- endif %}
+  {% assign lastSeparator = block.type %}
+  {%- endfor -%}
+}
+{% endcapture %}
+
+<script>
+  window.faqs = window.faqs || [];
+  window.faqs.push('{{- faqs | strip_newlines -}}');
+</script>
+
+{% schema %}
+{
+  "name": "RS FAQ Block",
+  "class": "faq-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RS FAQ Block"
+    }
+  ]
+}
+{% endschema %}

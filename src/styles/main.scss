@@ -1,0 +1,77 @@
+/**
+ * entry file for Tailwind CSS
+ * and other style files
+ */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "_v-lazy-image";
+@import "tailwindcss/utilities";
+@import "_mobile-navigation";
+
+//------------------------------
+// *****************************
+// Global Imports
+// *****************************
+//------------------------------
+
+@import "base/variables";
+@import "base/colors";
+@import "base/mixins";
+@import "base/fonts";
+// @import "base/reset";
+@import "base/buttons";
+@import "base/text";
+@import "base/swatches";
+@import "base/slider";
+@import "base/lists";
+@import "base/icons";
+@import "base/hover";
+// @import "base/placeholders";
+
+//------------------------------
+// *****************************
+// Layout
+// *****************************
+//------------------------------
+
+// @import "layout/base";
+// @import "layout/header";
+// @import "layout/footer";
+// @import "layout/carticon";
+@import "layout/drawer";
+@import "layout/layout";
+@import "layout/ajaxcart";
+@import "layout/notification";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/announcement-bar";
+@import "layout/main-navigation"; 
+@import "layout/mobile-navigation";
+@import "layout/social-follow-icons";
+@import "layout/footer";
+@import "layout/form";
+
+//------------------------------
+// *****************************
+// Pages
+// *****************************
+//------------------------------
+
+@import "pages/cart";
+@import "pages/customer";
+// @import "pages/checkout";
+
+//------------------------------
+// *****************************
+// Snippets
+// *****************************
+//------------------------------
+
+
+//------------------------------
+// *****************************
+// Sections
+// *****************************
+//------------------------------
+
+@import "sections/sections";

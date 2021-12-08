@@ -1,0 +1,88 @@
+{% if product.metafields.global.h1_text %}
+  <h1>{{ product.metafields.global.h1_text | escape }}</h1>
+{% else %}
+  <h1>Professional & Custom Teeth Whitening Solution</h1>
+{% endif %}
+
+<section id="product-{{ product.id }}" data-product-id="{{ product.id }}" data-section-type="product" data-enable-history-state='true' class="product">
+  <div class="vue-rs-product">
+    <rs-product
+      shop-url='{{- shop.secure_url | escape -}}'
+      product-url='{{- product.url | escape -}}'
+      :product-liquid='{{- product | json | escape -}}'
+      :subscription-product-handle='{{- section.settings.subscription_product | json | escape -}}'
+      :meta-global='{{- product.metafields.global | json | escape -}}'
+      :meta-subscriptions='{{- product.metafields.subscriptions | json | escape -}}'
+      :meta-box-title='{{- section.settings.box_title | strip_html | json -}}'
+      :meta-box-desc='{{- section.settings.box_desc | strip_html | json -}}'
+      :meta-subscriptions-savings-text='{{- section.settings.subscription_savings_text | json -}}'
+      :reviews-stars='{{- product.metafields.okendo.ProductListingSnippet | strip_newlines | json | escape -}}'
+    ></rs-product>
+  </div>
+</section>
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+  var item = {
+    Name: {{ product.title | json }},
+    ProductID: {{ product.id | json }},
+    Categories: {{ product.collections | map:'title' | json }},
+    ImageURL: "https:{{ product.featured_image.src | img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor | json }},
+    Price: {{ product.price | money | json }},
+    CompareAtPrice: {{ product.compare_at_price_max | money | json }}
+  };
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+  window.addEventListener("load", function (e) {
+    document.getElementsByClassName("atc btn")[0].addEventListener('click', function () {
+      _learnq.push(['track', 'Added to Cart', item]);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "subscription_product",
+      "label": "Subscription (refill) Product"
+    },
+    {
+      "type": "richtext",
+      "id": "box_title",
+      "label": "Box Title"
+    },
+    {
+      "type": "richtext",
+      "id": "box_desc",
+      "label": "Box Description"
+    },
+    {
+      "type": "richtext",
+      "id": "subscription_savings_text",
+      "label": "Subscription Savings Text"
+    }
+  ],
+  "class": "product-section spaced-section"
+}
+{% endschema %}

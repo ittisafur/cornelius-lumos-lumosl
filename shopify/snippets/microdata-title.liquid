@@ -1,0 +1,20 @@
+{%- comment -%}
+This snippet sets the <title> value...the page_title Shopify object is the SEO Title field on many of 
+ the admin pages but those Title fields can sometimes be used for values on the page other than the 
+ html <title> element...so in those cases a metafield can be set on the object [global.page_title] and 
+ it will be found and used here.
+{%- endcomment -%}
+
+{% assign resource = false %}
+
+{% if template.name == 'blog' %}
+  {% assign resource = blog %}
+{% elsif 'product' %}
+  {% assign resource = product %}
+{% endif %}
+  
+{% if resource and resource.metafields.global.page_title %}
+  <title>{{ resource.metafields.global.page_title | escape }}</title>
+{% else %}
+  <title>{{ page_title | escape }}</title>
+{% endif %}

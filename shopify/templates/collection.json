@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {}
+    },
+    "collection": {
+      "type": "collection",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "collection"
+  ]
+}

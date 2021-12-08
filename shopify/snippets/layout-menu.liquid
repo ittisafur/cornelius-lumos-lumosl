@@ -1,0 +1,7 @@
+<nav class="vue-navigation-block {{ class | default: '' }}" style="{{ style | default: '' }}">
+  <navigation-block
+    :link-list='{% render 'json-linkList', handle: menu_handle %}'
+    :megamenu={{is_megamenu}}
+    files-url='{{- "" | file_url | url_param_escape | escape -}}'
+  />
+</nav>

@@ -1,0 +1,84 @@
+.menu-italic-text{
+  @include Futura(normal,italic);
+  @include text(16px,22px,$color-gray-2,0.25px);
+  display: inline-block;
+  @include transition(0.2s); 
+  @include transUnderline($color-antique-brass, 2px, 0.2s);
+  &:hover,&:active{
+    color: $color-antique-brass;
+  }
+}
+
+
+.menu-small-text{
+  @include Futura(bold);
+  @include text(16px,22px,$color-gray-2);  
+}
+
+.sub-menu-text{
+  @include Futura(normal);
+  @include text(15px,22px,$color-gray-2);  
+}
+
+.title-text-1{
+  @include Futura(bold);
+  @include text(52px,1,$color-gray-2); 
+}
+
+.title-text-1-w{
+  @include Futura(bold);
+  @include text(52px,1,$color-white, -0.6px); 
+  @media (max-width:$mobile){
+    font-size: 36px;
+    letter-spacing: -0.4px;
+  }
+  @media (max-width:$small){
+    font-size: 30px;
+    letter-spacing: -0.3px;
+  }
+}
+
+.title-text-3{
+  @include Futura(500);
+  @include text(36px,42px,$color-gray-2,-0.45px); 
+  @media (max-width:$mobile) {    
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.38px;
+  }
+}
+
+.title-text-4{
+  @include Futura(bold);
+  @include text(18px,24px,$color-gray-2);
+}
+
+.body-text{
+  @include Futura(normal);
+  @include text(16px,30px,$color-gray-2);
+  @media (max-width:$mobile) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.body-text-sm{
+  @include Futura(normal);
+  @include text(14px,24px,$color-gray-2);
+  @media (max-width:$mobile) {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+.body-text-sm-sb{
+  @include Futura(600);
+  @include text(14px,24px,$color-gray-2);
+  @media (max-width:$mobile) {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.body-text-sm-special{
+  @include text(14px,19px,$color-gray-2);
+}

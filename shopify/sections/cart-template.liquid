@@ -1,0 +1,132 @@
+<!-- cart.liquid -->
+<div class="vue-cart-render">
+  <cart-render
+    :rec-prod-heading='{{- section.settings.rec_prod_heading | json -}}'
+    sub-dis='{{- settings.subscription_disclaimer -}}'
+  />
+  {% comment %} <Cart>
+    <section slot-scope="{ cartCount, cartProducts, cartJson, cartPrice, cartLoading, recommendedProducts, currentRecommendations, recommendedProductsLoading, cartNote, getRecommendedProducts, clearCart, updateItem, addItem, isEmptyCart, isEmptyCurrentRecommendations, goToCheckout, updateQuantity, removeItem, changeQty, changeQtyBox, addRecommendedItem, removeIcon, lockIcon }" id="cart-section">
+      <div class="container page-width" v-bind:class="{empty: isEmptyCart()}">
+        <div class="row">
+          <div class="w-full" v-show="!isEmptyCart()">
+            <div class="cart-header">
+              <h1>Shopping Bag (<span v-text="cartCount"></span>)</h1>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="w-full" v-show="!isEmptyCart()">
+            <form action="#" class="cart-form">
+              <div class="cart-content w-full sm:w-2/3">
+                <div class="cart-item py-4 mr-4" v-for="(product, index) in cartProducts" v-bind:key="product.key">
+                  <div class="image-wrapper w-1/4 sm:w-1/5">
+                    <a v-bind:href="product.link" v-show="product.image_medium">
+                      <img v-bind:src="product.image_medium" v-bind:title="product.title">
+                    </a>
+                  </div>
+                  <div class="item-details w-3/4 sm:w-4/5 h-full">
+                    <div class="item-row">
+                      <div class="product-name">
+                        <a v-bind:href="product.link" v-text="product.title"></a>
+                        <small v-for="(property, propertyKey) in product.properties" v-show="propertyKey !== 'UHLEP'" v-bind:key="propertyKey" v-text="`${propertyKey}: ${property}`"></small>
+                      </div>
+                      <div class="remove-from-cart">
+                        <button class="remove__item" v-on:click.prevent="removeItem(product.key)"><i class="icon" aria-hidden="true" v-html="removeIcon"></i></button>
+                      </div>
+                    </div>
+                    <div class="item-row">
+                      <div class="js-qty">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text" v-on:click.prevent="changeQty(product.key, product.quantity, false)">
+                          <span class="icon icon-minus" aria-hidden="true"></span>
+                          <span class="fallback-text">−</span>
+                        </button>
+                        <input type="text" class="js-qty__num" value="1" data-id="" aria-label="quantity" pattern="[0-9]*" name="updates[]" v-model="product.quantity" v-on:change="updateQuantity(product.key, product.quantity)">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text" v-on:click.prevent="changeQty(product.key, product.quantity, true)">
+                          <span class="icon icon-plus" aria-hidden="true"></span>
+                          <span class="fallback-text">+</span>
+                        </button>
+                      </div>
+                      <div class="price">
+                        <span class="original-price" v-text="product.compare_at_price"></span>
+                        <span class="current-price" v-text="product.price"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="recommended-products py-4 mr-4">
+                  <div class="recommended-header">{% if section.settings.rec_prod_heading != blank %}{{ section.settings.rec_prod_heading }}{% else %}We also recommend{% endif %}</div>
+                  <div class="recommended-body" v-bind:class="{loading: recommendedProductsLoading}">
+                    <svg class="loader" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve"><g><path d="M59.6 0h8v40h-8V0z" fill="#000000" fill-opacity="1"/><path d="M59.6 0h8v40h-8V0z" fill="#cccccc" fill-opacity="0.2" transform="rotate(30 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#cccccc" fill-opacity="0.2" transform="rotate(60 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#cccccc" fill-opacity="0.2" transform="rotate(90 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#cccccc" fill-opacity="0.2" transform="rotate(120 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#b2b2b2" fill-opacity="0.3" transform="rotate(150 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#999999" fill-opacity="0.4" transform="rotate(180 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#7f7f7f" fill-opacity="0.5" transform="rotate(210 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#666666" fill-opacity="0.6" transform="rotate(240 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#4c4c4c" fill-opacity="0.7" transform="rotate(270 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#333333" fill-opacity="0.8" transform="rotate(300 64 64)"/><path d="M59.6 0h8v40h-8V0z" fill="#191919" fill-opacity="0.9" transform="rotate(330 64 64)"/><animateTransform attributeName="transform" type="rotate" values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64" calcMode="discrete" dur="1080ms" repeatCount="indefinite"/></g></svg>
+                    <AtomRecommendedProduct
+                      v-for="(product, index) in currentRecommendations"
+                      :key="product.id"
+                      :product-liquid="product"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="cart-summary__container w-full sm:w-1/3">
+                <div class="cart-summary__sticky">
+                  <div class="cart-summary p-4">
+                    <div class="summary__header py-2">
+                      <div class="subtotal py-2">
+                        <span class="subtotal-text">subtotal</span>
+                        <span class="subtotal-value" v-text="cartPrice"></span>
+                      </div>
+                      <div class="atc__info py-2 capitalize">Shipping &amp; taxes calculated at checkout</div>
+                    </div>
+                    <div class="summary__cta">
+                      <div class="atc__container">
+                        <button id="checkout-button-cart" class="flex to-checkout button-main-big dark-green-fill rounded-full py-3 px-6 flex justify-center items-center" v-on:click.prevent="goToCheckout()"><i class="icon mr-2" v-html="lockIcon"></i>checkout</button>
+                        <!-- <button class="clear-cart button-alt-big" v-on:click.prevent="clearCart()"><i class="fa fa-times-thin" aria-hidden="true"></i>Clear Cart</button> -->
+                      </div>
+                      <div class="blue-stroke p-4 text-center">
+                        Continue Shopping
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary__info help-support__info p-8 my-8">
+                    <div class="questions divide-y divide-gray-500">
+                      <div class="py-2">
+                        Help &amp; Support
+                      </div>
+                      <div class="py-4">
+                        Email: <a class="blue-stroke" href="mailto:hello@lumossmile.com">hello@lumossmile.com</a> or hit the live chat icon
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="cart-loading" v-show="cartLoading"></div>
+          </div>
+          <div class="w-full text-center empty-cart-text"  v-show="isEmptyCart()">
+            <div class="page-width">      
+              <div class="page-empty text-center">
+                <h1>Shopping Bag</h1>
+                <p class="cart--empty-message">Your bag is currently empty.</p>
+                <p class="cart--cookie-message">Enable cookies to use the shopping bag</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </Cart> {% endcomment %}
+</div> 
+
+<script type="application/json" id="CartJson-{{ section.id }}">
+  {{ cart | json }}
+</script>
+
+{% schema %}
+{
+  "name": "Cart Settings",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "rec_prod_heading",
+      "label": "Recommended Products Heading"
+    }
+  ]
+}
+{% endschema %}

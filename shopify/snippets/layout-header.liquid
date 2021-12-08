@@ -1,0 +1,92 @@
+<header id="header">
+  {% section 'layout-announcement-bar' %}
+  {% assign link_class = 'flex flex-col justify-center items-center text-sm text-gray-600 font-medium p-0 lg:p-2' %}
+  {% assign icon_class = 'w-auto h-8 lg:h-10 text-black' %}
+  {% assign nav_class = 'w-auto h-5 lg:h-10 text-black' %}
+  {% assign cart_icon_class = 'w-auto h-8 lg:h-10 text-black' %}
+
+  <div class="header__wrapper bg-white">
+    <div class="md:h-32 flex justify-between items-center header__container">
+      <div class="hidden lg:block w-5/12">
+        {% render 'layout-menu', 
+          class: 'mainNavigation w-full',
+          menu_handle: 'main-menu',
+          is_megamenu: true %}
+      </div><!-- Main Navigation-->
+      <div class="lg:hidden w-3/12 flex items-center">
+        {% render 'navigation-toggle', icon_class: nav_class %}
+      </div>
+
+      <div class="flex lg:w-2/12 w-6/12 justify-center relative">
+        <a
+          href="{{ routes.root_url }}"
+          class="logo"
+        >
+          {% comment %} {% include 'svg-logo' %} {% endcomment %}
+          <img src="{{ 'Lumos-Smile-final.gif' | file_url }}">
+        </a><!-- Logo -->
+
+        <div id="mobileSearch" class="hidden" >
+          {% include 'search-form', icon_class: icon_class %}
+        </div>
+      </div>
+
+      <div class="flex lg:w-5/12 w-3/12 items-center justify-end text-4xl">
+        {% if shop.customer_accounts_enabled %}
+          <a
+            href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+            class="{{ link_class }} mr-6"
+          >
+            {% render 'icon-account', class: icon_class %}
+          </a>
+        {% endif %}
+
+        <div class="vue-cart-icon">
+          <cart-icon
+            link-class="{{- link_class -}}"
+            icon-class="{{- cart_icon_class -}}"
+          ></cart-icon>
+        </div>
+
+      </div> <!-- Icons -->
+    </div>
+  </div>
+</header>
+{% section 'ajax-cart-template' %}
+
+<div class="mobileNavigationDrawer" id="mobileNavigation">
+  {% render 'layout-menu', 
+    class: 'mobileNavigation',
+    menu_handle: 'main-menu',
+    is_megamenu: true %}
+
+
+    <nav class="vue-navigation-block accountNavigation">
+      <navigation-block
+        :link-list='{% render 'json-linkList', handle: 'rs-dev-account-navigation-mobile' %}'
+        :megamenu=true
+      ></navigation-block>
+
+      <ul>
+        <li>
+          <a
+          href="#swym-wishlist"
+          class="lg:mr-6 lg:block swym-wishlist flex items-center text-body-m text-black"
+          >
+            Wishlist {% render 'icon-wishlist', class:'ml-2 h-6' %}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+  <div class="mobileNavigationDrawer__footer">
+    {% section 'social-follow-icons' %}
+    <a href="mailto:hello@lumossmile.com">hello@lumossmile.com</a> 
+  </div>
+
+</div><!-- Mobile Navigation-->
+
+<div class="vue-navigation-placeholder">
+  <navigation-placeholder></navigation-placeholder>
+</div>

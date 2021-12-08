@@ -1,0 +1,29 @@
+
+<div class="vue-ajax-cart-render ajax-cart-render">
+  <ajax-cart-render
+    :price-threshold="{{ section.settings.free_shipping_threshold_ajax }}"
+    is-above-threshold-message="{{ section.settings.free_shipping_message_ajax }}"
+    sub-dis="{{ settings.subscription_disclaimer }}"
+  />
+</div>
+
+{% schema %}
+{
+  "name": "AJAX Cart Settings",
+  "settings": [
+    {
+      "type": "number",
+      "id": "free_shipping_threshold_ajax",
+      "label": "Free Shipping Threshold",
+      "info": "Value of 0 will hide this widget",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "free_shipping_message_ajax",
+      "label": "Free Shipping Message",
+      "default": "Yay! You've earned free shipping!"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+<div data-section-id="{{ section.id }}" data-section-type="collection-template" class="container">
+  <div class="page-width rs-filter-wrapper">
+    <div id="rs-filtermenu"></div>
+  </div>
+
+  <div class="page-width" style="padding-right: 0px;">
+    <div id="product-loop" class="grid">
+      <rs-collection
+        description='{{- collection.title | url_param_escape | escape -}}'
+        :collection='{{- collection | json | escape -}}'
+        :meta-cf='{{- collection.metafields.c_f | json | escape -}}'
+        :meta-global='{{- collection.metafields.global | json | escape -}}'
+        shop-url='{{- shop.secure_url | url_param_escape | escape -}}'
+        shop-name='{{- shop.name | url_param_escape | escape -}}'
+      ></rs-collection>
+    </div>
+    {% comment %} <div id="rs-notfound" class="nothingfound">{{ 'collections.general.no_matches' | t }}</div> {% endcomment %}
+  </div>
+</div>

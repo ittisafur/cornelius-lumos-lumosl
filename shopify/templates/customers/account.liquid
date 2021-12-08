@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="customer account">
+    <div class="w-full text-center">
+      <h1 class="text-4xl">Account</h1>
+    </div>
+    <div class="flex justify-between mb-4">
+      <div class="text-2xl capitalize">Welcome Back {{ customer.first_name }}</div>
+      <a class="neon-sky-stroke" href="{{ routes.account_logout_url }}">
+        {{ 'customer.log_out' | t }}
+      </a>
+    </div>
+
+    <div class="flex flex-col lg:flex-row justify-between">
+      <div class="w-full lg:w-1/3 light-gray-fill rounded-lg p-4 mb-4 lg:mb-0 lg:mr-4 flex flex-col">
+        <h2 class="pb-4 text-xl border-b-2 border-gray-300 capitalize" style="margin-bottom: 1rem;">{{ 'customer.account.details' | t }}</h2>
+        <div>
+          <div class="mb-2">Edit your account details.</div>
+          <ul class="mint-markers">
+            <li>{{ customer.name }}</li>
+            <li>{{ customer.email }}</li>
+          </ul>
+        </div>
+        <div class="flex flex-1 items-end justify-center">
+          <div class="text-center">
+            <div><a href="/pages/account" class="neon-sky-stroke">Edit/Update</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/3 light-gray-fill rounded-lg p-4 mb-4 lg:mb-0 lg:mr-4 flex flex-col">
+        <h2 class="pb-4 text-xl border-b-2 border-gray-300 capitalize" style="margin-bottom: 1rem;">Orders & Subscriptions</h2>
+        <div>
+          <div class="mb-2">View your recent orders and track shipments.</div>
+          {% paginate customer.orders by 5 %}
+            {%- if customer.orders.size > 0 -%}
+              <div class="pl-4 mb-1 text-gray-500">Recent Orders</div>
+              <ul class="mint-markers">
+              {%- for order in customer.orders -%}
+                <li>
+                  <a class="neon-sky-stroke" href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                    {{ order.name }}
+                  </a>
+                </li>
+              {%- endfor -%}
+              </ul>
+            {%- else -%}
+              <p>{{ 'customer.orders.none' | t }}</p>
+            {%- endif -%}
+          {% endpaginate %}
+        </div>
+        <div class="flex flex-1 items-end justify-center">
+          <div class="text-center">
+            <div><a href="/pages/orders" class="neon-sky-stroke">View All Orders</a></div>
+            {% if customer.metafields.subscriptions.customer_string %}
+              <div><a href="/tools/recurring/get-subscription-access" class="neon-sky-stroke">Manage Subscriptions</a></div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/3 light-gray-fill rounded-lg p-4 flex flex-col">
+        <h2 class="pb-4 text-xl border-b-2 border-gray-300 capitalize" style="margin-bottom: 1rem;">Address Book</h2>
+        <div>
+          <div class="mb-2">Add, edit, and delete addresses in your address book.</div>
+          <div class="text-md">{{ customer.default_address | format_address }}</div>
+        </div>
+        <div class="flex flex-1 items-end justify-center">
+          <div class="text-center">
+            <div>
+              <a class="neon-sky-stroke" href="{{ routes.account_addresses_url }}">
+                {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% section 'newsletter' %}

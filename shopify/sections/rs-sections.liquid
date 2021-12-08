@@ -1,0 +1,61 @@
+<section
+  class="vue-rs-sections py-4"
+  data-section-type="sections-component"
+  data-section-id="{{ section.id }}"
+  files-url='{{- "" | file_url | url_param_escape | escape -}}'
+  shop-url='{{- shop.secure_url -}}'
+>
+  <rs-sections
+    :enable-contact='{{- section.settings.enable_contact | json -}}'
+    sidenav-label={{- section.settings.sidenav_label | json -}}
+    files-url='{{- "" | file_url | url_param_escape | escape -}}'
+    shop-url='{{- shop.secure_url -}}'
+  />
+</section>
+
+<script>
+  document.addEventListener('shopify:section:load', (e) => {
+    RsSectionUpdate(e);
+  });
+  document.addEventListener('shopify:section:reorder', (e) => {
+    RsSectionUpdate(e);
+  });
+
+  var RsSectionUpdate = (e) => {
+    if (e.target.querySelector('[data-section-json]')) {
+      var updatedSectionSettings = JSON.parse(JSON.parse(e.target.querySelector('[data-section-json]').innerHTML));
+      var updatedSectionId = e.target.querySelector('[data-section-json]').dataset.sectionId;
+      document.dispatchEvent( new CustomEvent("vue::RsSections::updated", { detail: { sectionId: updatedSectionId, sectionSettings: updatedSectionSettings } }) );
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "RS Sections (parent)",
+  "class": "rs-sections",
+  "settings": [
+    {
+      "type": "select",
+      "id": "sidenav_label",
+      "label": "Side Nav Label",
+      "options": [
+        { "value": "section_header", "label": "Use heading" },
+        { "value": "section_sub_header", "label": "Use subheading" }
+      ],
+      "default": "section_sub_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_contact",
+      "default": true,
+      "label": "Enable Help and Support in the side nav"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RS Sections"
+    }
+  ]
+}
+{% endschema %}

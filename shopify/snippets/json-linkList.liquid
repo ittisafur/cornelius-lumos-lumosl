@@ -1,0 +1,160 @@
+{%- capture naviagtionJson -%}
+  [
+  {%- for link in linklists[handle].links -%}
+
+    {% comment %}
+    Assign Card Logic 
+    {% endcomment %}
+    {% assign link_title = link.title %}
+    {% assign link_is_card = false %}
+    {% if link.title contains 'Card |' %}
+      {% assign link_is_card = true %}
+      {% assign link_title = link.title | remove: 'Card | ' %}
+    {% endif %}
+
+    {% comment %}
+    Assign Image Logic
+    {% endcomment %}
+    {% assign image_url = '' %} 
+    {% assign link_title_handle = link_title | handleize %}
+    {% if link.object.metafields.navigation[link_title_handle] != blank  %}
+      {% assign image_url = link.object.metafields.navigation[link_title_handle] %}
+    {% else%}
+      {% if link.type == 'collection_link' %}
+
+        {% if link.object.image != blank %}
+          {% assign image_url = link.object.image | img_url: '800x' %} 
+        {% else %}
+          {% assign image_url = link.object.products.first.featured_image | img_url: '800x' %} 
+        {% endif %}
+
+      {% elsif link.type == 'product_link' %}
+        {% assign image_url = link.object.featured_image | img_url: '800x' %} 
+      {% endif %}
+    {% endif %} 
+
+    {
+      "title": {{ link_title | json | replace: "'", "&#39;" }},
+      "url": {{ link.url | json }},
+      "levels": {{ link.levels }},
+      "tier": 1, 
+      "image": {{ image_url | json }},
+      "is_card": {{link_is_card}},
+      "has_children": {%- if link.links.size > 0 -%}true{%- else -%}false{%- endif -%},
+      "type": {{ link.type | json }},
+      "active": {{ link.active | json }},
+      "current": {{ link.current | json }},
+      "megamenu": true,
+      "child_current": {{ link.child_current | json }},
+      "index": "{{handle}}-0-{{ forloop.index }}",
+      "links": [
+        {%- assign sub_count = 0 -%}
+        {%- for sub_link in link.links -%}
+
+            {% comment %}
+            Assign Card Logic 
+            {% endcomment %}        
+            {% assign sub_link_title = sub_link.title %}
+            {% assign sub_link_is_card = false %}
+            {% if sub_link.title contains 'Card |' %}
+              {% assign sub_link_is_card = true %}
+              {% assign sub_link_title = sub_link.title | remove: 'Card | ' %}
+            {% endif %}
+
+
+            {% comment %}
+            Assign Image Logic
+            {% endcomment %}
+            {% assign sub_image_url = '' %} 
+            {% assign sub_link_title_handle = sub_link_title | remove: "'" %}
+            {% if sub_link.object.metafields[link_title][sub_link_title] != blank  %}
+              {% assign sub_image_url = sub_link.object.metafields[link_title][sub_link_title] %}
+            {% else%}
+              {% if sub_link.type == 'collection_link' %}
+                  {% if sub_link.object.image != blank %}
+                    {% assign sub_image_url = sub_link.object.image | img_url: '800x' %} 
+                  {% else %}
+                    {% assign sub_image_url = sub_link.object.products.first.featured_image | img_url: '800x' %} 
+                  {% endif %}
+              {% elsif sub_link.type == 'product_link' %}
+                {% assign sub_image_url = sub_link.object.featured_image | img_url: '800x' %} 
+              {% endif %}
+            {% endif %} 
+
+
+        {%- assign sub_count = sub_count | plus: 1 -%}
+        {%- unless sub_count == 1 -%},{%- endunless -%}{
+            "title": {{ sub_link_title | json | replace: "'", "&#39;" }},
+            "url": {{ sub_link.url | json }},
+            "megamenu": true,
+            "is_card": {{sub_link_is_card}},
+            "image": {{sub_image_url | json }},
+            "levels": {{sub_link.levels | json }},
+            "tier": 2, 
+            "type": {{ sub_link.type | json  }},
+            "active": {{ sub_link.active | json }},
+            "has_children": {%- if sub_link.links.size > 0 -%}true{%- else -%}false{%- endif -%},
+            "current": {{ sub_link.current | json  }},
+            "index": "{{handle}}-1-{{ forloop.index }}",
+            "child_current": {{ sub_link.child_current | json }},
+            "links": [
+              {%- assign sub_sub_count = 0 -%}
+              {%- for sub_sub_link in sub_link.links -%}
+
+
+              {% comment %}
+              Assign Card Logic 
+              {% endcomment %}                
+              {% assign sub_sub_link_title = sub_sub_link.title %}
+              {% assign sub_sub_link_is_card = false %}
+              {% if sub_sub_link.title contains 'Card |' %}
+                {% assign sub_sub_link_is_card = true %}
+                {% assign sub_sub_link_title = sub_sub_link.title | remove: 'Card | ' %}
+              {% endif %}
+
+              {% comment %}
+              Assign Image Logic
+              {% endcomment %}
+              {% assign sub_sub_image_url = '' %} 
+              {% assign sub_sub_link_title_handle = sub_sub_link_title | handleize %}
+              {% if sub_sub_link.object.metafields.navigation[sub_sub_link_title_handle] != blank  %}
+                {% assign sub_sub_image_url = sub_sub_link.object.metafields.navigation[sub_sub_link_title_handle] %}
+              {% else%}
+                {% if sub_sub_link.type == 'collection_link' %}
+
+                  {% if sub_sub_link.object.image != blank %}
+                    {% assign sub_sub_image_url = sub_sub_link.object.image | img_url: '800x' %} 
+                  {% else %}
+                    {% assign sub_sub_image_url = sub_sub_link.object.products.first.featured_image | img_url: '800x' %} 
+                  {% endif %}
+
+                {% elsif sub_sub_link.type == 'product_link' %}
+                  {% assign sub_sub_image_url = sub_sub_link.object.featured_image | img_url: '800x' %} 
+                {% endif %}
+              {% endif %}               
+
+              {%- assign sub_sub_count = sub_sub_count | plus: 1 -%}
+              {%- unless sub_sub_count == 1 -%},{%- endunless -%}{
+                  "title": {{ sub_sub_link_title | json  | replace: "'", "&#39;" }},
+                  "url": {{ sub_sub_link.url | json }},
+                  "megamenu": true,
+                  "tier": 3, 
+                  "image": {{sub_sub_image_url | json }},
+                  "is_card": {{sub_sub_link_is_card}},
+                  "levels": {{sub_sub_link.levels | json }},
+                  "has_children": {%- if sub_sub_link.links.size > 0 -%}true{%- else -%}false{%- endif -%},
+                  "active": {{ sub_sub_link.active | json }},
+                  "index": "{{handle}}-2-{{ forloop.index }}",
+                  "type": {{ sub_sub_link.type | json  }},
+                  "current": {{ sub_sub_link.current | json }}
+                }
+              {%- endfor -%}
+            ]
+          }
+        {%- endfor -%}
+      ]
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+  ]
+{%- endcapture -%}
+{{naviagtionJson}}

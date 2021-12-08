@@ -1,0 +1,35 @@
+# On new pushes to any feature/* branch,
+# this workflow creates a PR (if one doesn't already exist) 
+# from the feature/* branch to the release/_candidate branch
+
+name: FeaturePR
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push :
+    branches: [ feature/*, bug/*, hotfix/* ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  stage_pr:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: GitHub Pull Request Action
+      uses: repo-sync/pull-request@v2.2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        destination_branch: "release/_candidate" 
+        pr_title: "Pulling ${{ steps.extract_branch.outputs.branch }} into release/_candidate"

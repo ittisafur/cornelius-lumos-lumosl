@@ -1,0 +1,81 @@
+.usp-icons {
+  &__container {
+    max-width: 1300px;
+  }
+}
+
+.footer {
+  input[type="checkbox"]:checked + .footer__newsletter--checkbox {
+    background-color: #000000;
+    border-color: #000000;
+  }
+
+  &__accordion,
+  &__linkHeading {
+    @media(min-width: 768px) {
+      max-width: 200px;
+    }
+  }
+
+  &__accordion--heading {
+    @media(max-width: 767px) {
+      .toggle-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: calc(50% - (11px / 2));
+        width: 11px;
+        height: 11px;
+
+        &:before, &:after {
+          position: absolute;
+          content: '';
+          top: 50%;
+          left: 50%;
+          background-color: currentColor;
+          transform: translate(-50%, -50%) rotate(-90deg);
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+
+        &:before {
+          width: 11px;
+          height: 1px;
+        }
+
+        &:after {
+          width: 1px;
+          height: 11px;
+        }
+
+        &.is-active {
+          &:before {
+            opacity: 0;
+          }
+          &:after {
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__accordion--content {
+    overflow: hidden;  
+    -webkit-transition: height 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out; 
+
+    @media(max-width: 767px) {
+      max-height: 0px;
+      visibility: hidden;
+      opacity: 0;
+      padding-bottom: 0px!important;
+      transition: max-height 0.4s ease-in-out, visibility 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+
+      &.is-active {
+        max-height: 1000px;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

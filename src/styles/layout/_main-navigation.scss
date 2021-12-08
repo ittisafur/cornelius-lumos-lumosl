@@ -1,0 +1,119 @@
+$level1-spaceBetweenLinks: 30px;
+
+.mainNavigation {
+  @include Apercu();
+
+  // General 
+  .navigationLink {
+    font-family: inherit;
+  }
+
+  .navigationLink--card {
+    .navigationLink__imageWrapper {
+      margin-bottom: 18px;
+    }
+  }
+
+  .navigationBlock__toggle {
+    display: none;
+  }
+
+  // First Level - Tier 1
+  > .navigationBlock {
+    display: flex;
+  }
+
+  > .navigationBlock .navigationLink {
+    position: relative;
+    padding: 5px 0;
+
+    &:after {
+      content: ' '; 
+      display: block;
+      width: 0px;
+      height: 2px;
+      background-color:$color-mint;
+      position: absolute;
+      bottom: 0px;
+      transition: ease-in-out 0.2s;
+    }
+  }
+
+
+  .navigationBlock__tier--1:hover > .navigationBlock__link > .navigationLink {
+    &:after {
+      width: 100%;
+    }
+  }
+  
+  .navigationBlock__tier--1 {
+    margin-right: $level1-spaceBetweenLinks; 
+    
+    &:hover {
+      > .navigationBlock {
+        visibility: visible;
+      }
+    }
+
+    > .navigationBlock__megamenu {
+      visibility: hidden;
+      opacity: 0;
+      transition: ease-in-out 0.2s;
+      z-index: 999;
+      background-color: $color-white;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      padding: 40px 20px;
+      left: 0;
+      height: auto;
+      border-bottom: 6px solid #BFFAEA;
+
+      .navigationBlock__megamenuWrapper {
+        max-width: 1535px;
+        margin: 0 auto;
+      }
+
+    }
+
+    &:hover > .navigationBlock__megamenu {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+
+  // Second Level - Tier 2 
+  .navigationBlock__tier--1 > .navigationBlock__megamenu > .navigationBlock__megamenuWrapper {
+     > .navigationBlock {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .navigationBlock__tier--2 {
+      flex-basis: 250px;
+      margin-right: 33px;
+
+      .navigationBlock__link + .navigationBlock__megamenu, 
+      .navigationBlock__link  + .navigationBlock {
+        margin-top: 50px;
+      }
+
+     > .navigationBlock__link > .navigationLink {
+        @include Apercu(300);
+        font-size: 15px;
+        line-height: 172.2%;
+
+        &.navigationLink--nolink {
+          font-weight: 500;
+  
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+

@@ -1,0 +1,77 @@
+.icon-inline {
+	&-full {
+		svg {
+			display: inline-block;
+		}  
+	}
+	svg {
+		display: inline-block;
+		width: 20px;
+		margin-right: .5rem;
+	}
+}
+
+/**
+ * Okendo reviews:
+ */
+.reviews-stars {
+	.okeReviews-reviewsSummary-ratingCount {
+		&:before {
+			content: '(';
+			display: inline-block;
+		}
+		&:after {
+			content: ')';
+			display: inline-block;
+		}
+	}
+}
+
+.inline__contents {
+	> * {
+		display: inline;
+	}
+}
+
+.zoom-icon {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.3769 0C6.40577 0 3.17295 3.23282 3.17295 7.20399C3.17295 9.15965 3.95122 10.9157 5.20843 12.2129L0 17.4412L0.558758 18L5.8071 12.7517C7.04435 13.7694 8.6408 14.388 10.3769 14.388C14.3282 14.388 17.561 11.1752 17.561 7.20399C17.561 3.23282 14.3282 0 10.3769 0ZM10.3769 13.7894C6.74501 13.7894 3.79157 10.8359 3.79157 7.20399C3.79157 3.57206 6.74501 0.618625 10.3769 0.618625C14.0089 0.618625 16.9623 3.57206 16.9623 7.20399C16.9623 10.8359 14.0089 13.7894 10.3769 13.7894Z' fill='%23888888'/%3E%3Cpath d='M10.8758 2.61419H9.87805V6.60532H5.88692V7.6031H9.87805V11.5942H10.8758V7.6031H14.867V6.60532H10.8758V2.61419Z' fill='%23888888'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+}
+
+.pulse {
+	background: $color-dark-green;
+	border-radius: 50%;
+	margin: 5px;
+	height: 12px;
+	width: 12px;
+
+  @media screen and (min-width: 1440px) {
+    margin: 10px;
+    height: 24px;
+    width: 24px;
+  }
+
+	box-shadow: 0 0 0 0 rgba($color-dark-green, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba($color-dark-green, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba($color-dark-green, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba($color-dark-green, 0);
+	}
+}

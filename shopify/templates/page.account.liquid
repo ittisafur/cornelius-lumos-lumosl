@@ -1,0 +1,189 @@
+<div class="container">
+  <div class="customer account">
+    <div class="w-full text-center mb-8">
+      <h1 class="text-4xl">My Account</h1>
+    </div>
+    <div class="flex justify-between mb-8">
+      <div class="text-2xl">Editing Account Details</div>
+      {% comment %} <a class="neon-sky-stroke" href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a> {% endcomment %}
+      <a class="neon-sky-stroke" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+    </div>
+    {% if customer %}
+      <div class="text-left">
+        <h2 class="text-2xl border-b-2 border-gray-300 pb-4 mb-8" tabindex="-1">Account Details</h2>
+        <div>Edit your account details.</div>
+      </div>
+      <form id="updateAccount">
+        <div class="field">
+          <input
+            type="text"
+            id="CustomerFirstName"
+            autocomplete="first_name"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="Enter your first name"
+            value="{{ customer.first_name }}"
+          >
+          <label for="CustomerFirstName">First Name</label>
+        </div>
+
+        <div class="field">
+          <input
+            type="text"
+            id="CustomerLastName"
+            autocomplete="last_name"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="Enter your last name"
+            value="{{ customer.last_name }}"
+          >
+          <label for="CustomerLastName">Last Name</label>
+        </div>
+
+        <div class="field">
+          <input
+            type="email"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="{{ 'customer.login_page.email' | t }}"
+            value="{{ customer.email }}"
+          >
+          <label for="CustomerEmail">{{ 'customer.login_page.email' | t }}</label>
+        </div>
+
+        <div class="field">
+          <input
+            type="password"
+            value=""
+            id="CustomerPassword"
+            autocomplete="current-password"
+            placeholder="{{ 'customer.login_page.password' | t }}"
+          >
+          <label for="CustomerPassword">{{ 'customer.login_page.password' | t }}</label>
+        </div>
+
+        <div class="field">
+          <input
+            type="password"
+            value=""
+            id="CustomerPasswordConfirm"
+            autocomplete="current-password-confirm"
+            placeholder="{{ 'customer.login_page.password' | t }}"
+          >
+          <label for="CustomerPassword">Confirm {{ 'customer.login_page.password' | t }}</label>
+        </div>
+
+        <div class="p-4">
+          <button>Save Account Details</button>
+        </div>
+        <p id="updateAccountNotification" class="hidden text-center"></p>
+      </form>
+    {% else %}
+      <div class="flex w-full h-full justify-center items-center text-3xl">You must be logged in to access this page.</div>
+    {% endif %}
+  </div>
+</div>
+
+{% section 'newsletter' %}
+
+<script>
+  const update = function (e) {
+    e.preventDefault();
+    const accessTokenString = sessionStorage.getItem('accessToken');
+    if (accessTokenString) {
+      var accessToken = JSON.parse(accessTokenString)?.token;
+    } else {
+      console.log('Missing token!');
+      return;
+    }
+
+    var firstName = document.getElementById('CustomerFirstName').value,
+        lastName = document.getElementById('CustomerLastName').value,
+        email = document.getElementById('CustomerEmail').value,
+        password = document.getElementById('CustomerPassword').value,
+        passwordConfirm = document.getElementById('CustomerPasswordConfirm').value;
+
+    if (password && password === passwordConfirm || !password && (firstName || lastName || email)) {
+      const query = `mutation customerUpdate($customerAccessToken: String!, $customer: CustomerUpdateInput!) {
+        customerUpdate(customerAccessToken: $customerAccessToken, customer: $customer) {
+          customer {
+            id
+          }
+          customerAccessToken {
+            accessToken
+            expiresAt
+          }
+          customerUserErrors {
+            code
+            field
+            message
+          }
+        }
+      }`;
+  
+      const xhr = new XMLHttpRequest();
+      const url = window.location.origin + "/api/2021-07/graphql";
+      xhr.open("POST", url);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("X-Shopify-Storefront-Access-Token", "f27e5b851c319cf71ac559d263b6fbaf");
+  
+      var requestBody = {
+        query: query,
+        variables: {
+          "customerAccessToken": accessToken,
+          "customer": {}
+        }
+      };
+
+      if (firstName) requestBody.variables.customer = { ...requestBody.variables.customer, ...{ firstName: firstName } };
+      if (lastName) requestBody.variables.customer = { ...requestBody.variables.customer, ...{ lastName: lastName } };
+      if (email) requestBody.variables.customer = { ...requestBody.variables.customer, ...{ email: email } };
+      if (password) requestBody.variables.customer = { ...requestBody.variables.customer, ...{ password: password } };
+  
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          var response = JSON.parse(this.responseText)?.data?.customerUpdate;
+          var errors = response?.customerUserErrors;
+          if (errors.length != 0) {
+            console.error(errors);
+            notify('error', 'Error: something went wrong.  Please try again.');
+          } else {
+            notify('success', 'Account Successfully Updated!');
+          }
+        }
+      };
+  
+      xhr.send(JSON.stringify(requestBody));
+    } else {
+      if (password !== passwordConfirm) notify('error', 'Error: password mismatch!');
+      return;
+    }
+  }
+
+  const notify = function (type='success', message='') {
+    var updateAccountNotification = document.getElementById('updateAccountNotification');
+    updateAccountNotification.innerHTML = message;
+    updateAccountNotification.classList.remove('error-stroke');
+    updateAccountNotification.classList.remove('dark-green-stroke');
+    if (type === 'error') {
+      updateAccountNotification.classList.add('error-stroke');
+    } else {
+      updateAccountNotification.classList.add('dark-green-stroke');
+    }
+    updateAccountNotification.classList.remove('hidden');
+  }
+
+  const clearNotification = function () {
+    var updateAccountNotification = document.getElementById('updateAccountNotification');
+    updateAccountNotification.innerHTML = '';
+    updateAccountNotification.classList.remove('error-stroke');
+    updateAccountNotification.classList.remove('dark-green-stroke');
+    updateAccountNotification.classList.add('hidden');
+  }
+
+  document.getElementById('updateAccount').addEventListener('submit', update);
+  Array.from(document.getElementById('updateAccount').querySelectorAll('input')).forEach(i => i.addEventListener('click', clearNotification));
+</script>

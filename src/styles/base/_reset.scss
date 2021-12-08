@@ -1,0 +1,133 @@
+
+//normalize
+body, div, span, p, input, button, blockquote, a {
+  @include OpenSans();
+  border: none;
+}
+textarea, h1, h2, h3, h4, h5, h6{ 
+  @include OpenSans();
+}
+h1, h2, h3, h4, h5, h6, p, a, input, label, body, html{
+  margin: 0;
+  padding: 0;
+}
+body,html{
+  height:auto;
+  min-height: 100%;
+  background: $color-white;
+  width: 100%;
+}
+html{
+  &.no-scroll{
+    position: fixed;
+    overflow-y: scroll;
+  }
+}
+body{
+  min-width:320px;
+}
+input,textarea{ 
+  -webkit-border-radius: 0;
+  border-radius: 0; 
+}
+img{
+  padding: 0; 
+  margin: 0; 
+  max-width: 100%; 
+  height: auto; 
+  border: none;
+}
+*:focus {
+  outline: 0;
+}
+.clearfix{
+  clear:both;
+  width:0;
+  height:0;
+  font-size:0;
+  line-height:0;
+  visibility:hidden;
+  overflow:hidden
+}
+a, a:hover, a:active, a:focus{
+  outline: 0;
+  text-decoration: none;
+  color:inherit;
+}
+
+//row flex class
+.row.is-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+//bootstrap - 20% width columns (5 in row)
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-xs-5ths {
+  width: 20%;
+  float: left;
+}
+@media (min-width: $mobile +1) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: $tablet +1) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: $desktop +1) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+
+//bootstrap container default resize
+body .container{
+  @media(min-width: 1440px ){
+    width: 1350px;
+  }
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.fa-times-thin:before {
+  content: '\00d7';
+}
+.fa-minus-thin:before {
+  content: '\336';
+}
+.fa-plus-thin:before {
+  content: '+';
+}

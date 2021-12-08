@@ -1,0 +1,11 @@
+<form action="/search" class="searchForm">
+    <input type="text" placeholder="Search" name="q" class="searchForm__input" >
+    <input type="hidden" name="type" value="product" />
+    <input type="hidden" name="options[prefix]" value="last" />
+
+    <button
+      class="searchForm__button"
+    >
+    {% render 'icon-search', class: icon_class %}
+  </button>          
+</form> 

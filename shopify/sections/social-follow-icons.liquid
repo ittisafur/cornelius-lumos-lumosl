@@ -1,0 +1,70 @@
+<div class="socialFollowIcons">
+  {% if section.settings.facebook_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.facebook_url}}" target="_blank">
+    {% include 'icon-facebook' %}
+  </a>
+  {% endif %}
+  {% if section.settings.twitter_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.twitter_url}}" target="_blank">
+    {% include 'icon-twitter' %}
+  </a>
+  {% endif %}
+  {% if section.settings.instagram_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.instagram_url}}" target="_blank">
+    {% include 'icon-instagram' %}
+  </a>
+  {% endif %}  
+  {% if section.settings.youtube_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.youtube_url}}" target="_blank">
+    {% include 'icon-youtube' %}
+  </a>
+  {% endif %}
+  {% if section.settings.tiktok_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.tiktok_url}}" target="_blank">
+    {% include 'icon-tiktok' %}
+  </a>
+  {% endif %}
+  {% if section.settings.pintrest_url != blank %}
+  <a class="socialFollowIcons__single" href="{{section.settings.pintrest_url}}" target="_blank">
+    {% include 'icon-pinterest' %}
+  </a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Social Follow Icons",
+  "settings": [
+    {
+      "type": "text",
+      "id": "facebook_url",
+      "label": "Facebook Url"
+    },            
+    {
+      "type": "text",
+      "id": "twitter_url",
+      "label": "Twitter Url"
+    },          
+    {
+      "type": "text",
+      "id": "youtube_url",
+      "label": "Youtube Url"
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "label": "Instagram Url"
+    },
+    {
+      "type": "text",
+      "id": "tiktok_url",
+      "label": "Tiktok Url"
+    },
+    {
+      "type": "text",
+      "id": "pintrest_url",
+      "label": "Pintrest Url"
+    }
+  ]
+}
+{% endschema %}

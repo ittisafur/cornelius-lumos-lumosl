@@ -1,0 +1,221 @@
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+@mixin transition($time: 1s, $timing-function: ease-in-out) {
+  @include prefix(transition, all $time $timing-function, "webkit");
+}
+
+@mixin text($size: 16px, $line: 1.5, $colour: initial, $spacing: normal) {
+  font-size: $size;
+  line-height: $line;
+  color: $colour;
+  letter-spacing: $spacing;
+}
+
+@mixin noFluff {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+@mixin transUnderline($colour: inherit, $thickness: 1px, $time: 0.2s) {
+  &::after {
+    content: "";
+    width: 0%;
+    height: $thickness;
+    background-color: $colour;
+    @include transition($time);
+    display: block;
+  }
+  &:hover,
+  &:active {
+    @media (min-width: $mobile) {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin noWebkit {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+@mixin vertical-align($position: relative, $top: 50%) {
+  position: $position;
+  top: $top;
+  transform: translateY(-50%);
+}
+
+/*================ Prefix mixins ================*/
+@mixin transform($transform) {
+  @include prefix(transform, #{$transform}, ms webkit spec);
+}
+
+/*============================================================================
+  Prefix mixin for generating vendor prefixes.
+  Based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_prefixer.scss
+
+  Usage:
+    // Input:
+    .element {
+      @include prefix(transform, scale(1), ms webkit spec);
+    }
+
+    // Output:
+    .element {
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+==============================================================================*/
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec {
+      #{$property}: $value;
+    } @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+/*================ Media Query IE z-index Mixin ================*/
+@mixin media-query-ie-z-index($z-index) {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    z-index: $z-index;
+  }
+}
+
+/*================ Style mixins ================*/
+@mixin accent-text() {
+  font-family: $font-stack-accent;
+  font-style: $font-style-accent;
+  font-weight: $font-weight-accent;
+  @if $type-accent-spacing {
+    letter-spacing: 0.1em;
+  }
+  @if $type-accent-transform {
+    text-transform: uppercase;
+  }
+}
+
+@mixin button-text-style() {
+  font-size: $font-size-button;
+  font-weight: $font-weight-body-bold;
+  @if $type-nav-spacing {
+    letter-spacing: 0.15em;
+  }
+  @if $type-nav-transform {
+    text-transform: uppercase;
+  }
+}
+
+@mixin nav-text-style() {
+  font-size: $font-size-nav;
+  font-weight: $font-weight-body-bold;
+  @if $type-nav-spacing {
+    letter-spacing: 0.6px;
+  }
+  @if $type-nav-transform {
+    text-transform: uppercase;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content;}
+  &:-moz-placeholder 			 {@content;}
+  &::-moz-placeholder 		 {@content;}
+  &:-ms-input-placeholder      {@content;}
+}
+
+@mixin placeholder-text() {
+  color: $color-body-text;
+  opacity: 0.6;
+}
+
+@mixin error-placeholder-text() {
+  color: $color-error-input-text;
+  opacity: 0.6;
+}
+
+@mixin header-placeholder-text() {
+  color: $color-header-links;
+  opacity: 0.6;
+}
+
+@mixin footer-placeholder-text() {
+  color: $color-footer-text;
+  opacity: 0.8;
+}
+
+@mixin opacity-placeholder-text() {
+  opacity: 1;
+}
+
+/*============================================================================
+  Flexbox prefix mixins from Bourbon
+    https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_flex-box.scss
+==============================================================================*/
+@mixin display-flexbox() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; // necessary for ie10
+}
+
+@mixin flex-wrap($value: nowrap) {
+  @include prefix(flex-wrap, $value, webkit moz ms spec);
+}
+
+@mixin flex-direction($value: row) {
+  @include prefix(flex-direction, $value, webkit spec);
+}
+
+@mixin align-items($value: stretch) {
+  // sass-lint:disable no-misspelled-properties
+  $alt-value: $value;
+
+  @if $value == 'flex-start' {
+    $alt-value: start;
+  } @else if $value == 'flex-end' {
+    $alt-value: end;
+  }
+
+  -ms-flex-align: $alt-value;
+  @include prefix(align-items, $value, webkit moz ms o spec);
+}
+
+@mixin align-content($value: stretch) {
+  @include prefix(align-content, $value, webkit moz ms spec);
+}
+
+@mixin flex($value) {
+  @include prefix(flex, $value, webkit moz ms spec);
+}
+
+@mixin flex-basis($width: auto) {
+  -ms-flex-preferred-size: $width;
+  @include prefix(flex-basis, $width, webkit moz spec);
+}
+
+@mixin align-self($align: auto) {
+  -ms-flex-item-align: $align;
+  @include prefix(align-self, $align, webkit spec);
+}
+
+@mixin justify-content($value: center) {
+  @include prefix(justify-content, $value, webkit moz ms spec);
+}

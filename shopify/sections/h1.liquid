@@ -1,0 +1,27 @@
+<h1 class="h1Ele1">{{ section.settings.h1 }}</h1>
+
+<style>
+  .h1Ele1 {
+    color: white;
+  }
+</style>
+
+{% schema %}
+{
+  "name":"h1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "h1",
+      "label": "h1 text",
+      "default": "Lumous Smile"
+    }
+  ],
+  "presets": [
+    {
+      "name": "H1",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

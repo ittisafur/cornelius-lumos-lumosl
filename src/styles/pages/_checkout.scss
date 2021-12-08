@@ -1,0 +1,93 @@
+#checkout-section{
+
+  .recommended-products {
+    // border-top: 1px solid #eceaeb;
+    .recommended-header {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .recommended-body {
+      position: relative;
+      background: rgba(136, 136, 136, 0.07);
+      .single-item {
+        display: flex;
+        padding: 1em;
+        .item-img {
+          flex: 1 1 10%;
+          border: 1px solid rgb(192, 143, 115);
+          height: 100%;
+          align-self: center;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+        .item-body {
+          flex: 1 1 90%;
+          margin-left: 1em;
+          font-family: Open Sans,sans-serif;
+          font-weight: 600!important;
+          font-style: normal;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          font-size: 12px;
+          line-height: 18px;
+          color: #353535;
+          letter-spacing: -.18px;
+
+          .item-title {
+            a { font-weight: 700!important; }
+          }
+          .item-price {
+            font-weight: 700!important;
+          }
+          .item-cta {
+            margin-top: 1em;
+            .recommended-atc {
+              transition: all 0.3s ease-in-out;
+              background: $color-dark-green;
+              color: $color-white;
+              cursor: pointer;
+              border-radius: 50px;
+              padding: .5rem 1rem;
+              text-align: center;
+
+              &:hover {
+                // background: $color-dark-green-hover;
+                background: lighten($color: $color-dark-green, $amount: 10);
+              }
+            }
+          }
+        }
+      }
+
+      .loader {
+        display: none;
+        background: #eceaeb;
+      }
+
+      &.loading {
+        .loader {
+          display: block;
+          position: absolute;
+          z-index: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, .1);
+        }
+      }
+    }
+  }
+
+}

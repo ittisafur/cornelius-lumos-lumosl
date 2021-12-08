@@ -1,0 +1,501 @@
+{
+  "sections": {
+    "section": {
+      "type": "rs-section-single",
+      "blocks": {
+        "1a7ae98a-e84d-46e2-a8a8-52571a2762bf": {
+          "type": "customizable-content",
+          "settings": {
+            "image_enabled": false,
+            "image_fit": "stretch",
+            "image_fit_mobile": "stretch",
+            "image_mobile_full_width": false,
+            "image_position": "justify-center",
+            "image_position_mobile": "justify-center",
+            "image_caption": "",
+            "video_enabled": false,
+            "video_type": "youtube",
+            "video_id": "",
+            "video_object_fit": "contain",
+            "content_enabled": true,
+            "content_for": "standalone",
+            "heading_subheading_section_mobile": false,
+            "content_horizontal_alignment": "justify-center",
+            "content_vertical_alignment": "items-center",
+            "heading": "Frequently Asked Questions",
+            "heading_color": "#ffffff",
+            "heading_color_mobile": "#ffffff",
+            "heading_fontsize": "text-6xl",
+            "heading_fontsize_mobile": "text-3xl",
+            "heading_fontweight": "font-normal",
+            "subheading": "",
+            "subheading_color": "#000000",
+            "subheading_color_mobile": "#000000",
+            "subheading_fontsize": "text-5xl",
+            "subheading_fontsize_mobile": "text-3xl",
+            "subheading_fontweight": "font-normal",
+            "content": "",
+            "content_color": "#000000",
+            "content_color_mobile": "#000000",
+            "content_fontsize": "text-5xl",
+            "content_fontsize_mobile": "text-3xl",
+            "content_fontweight": "font-normal",
+            "text_alignment": "text-left",
+            "text_alignment_mobile": "text-center",
+            "button_text": "",
+            "button_link": "",
+            "button_color": "#ffffff",
+            "button_text_color": "#ffffff",
+            "link_text": "",
+            "link_href": "",
+            "link_color": "#ffffff",
+            "cta_horizontal_alignment": "justify-between",
+            "html_enabled": false,
+            "html": "<div><p>Some HTML content<\/p><\/div>",
+            "html_horizontal_alignment": "justify-center",
+            "html_vertical_alignment": "items-center",
+            "mobile_stacking_order": ""
+          }
+        }
+      },
+      "block_order": [
+        "1a7ae98a-e84d-46e2-a8a8-52571a2762bf"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_color": "#000000",
+        "section_heading_color_mobile": "#000000",
+        "section_heading_fontsize": "text-5xl",
+        "section_heading_fontsize_mobile": "text-3xl",
+        "section_heading_fontweight": "font-bold",
+        "section_heading_text_alignment": "text-left",
+        "section_heading_text_alignment_mobile": "text-left",
+        "section_sub_heading": "",
+        "section_sub_heading_color": "#000000",
+        "section_sub_heading_color_mobile": "#000000",
+        "section_sub_heading_fontsize": "text-5xl",
+        "section_sub_heading_fontsize_mobile": "text-3xl",
+        "section_sub_heading_fontweight": "font-normal",
+        "section_sub_heading_text_alignment": "text-left",
+        "section_sub_heading_text_alignment_mobile": "text-left",
+        "section_width": "",
+        "section_item_widths": "",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_mobile": 4,
+        "section_padding_bottom_mobile": 4,
+        "section_curved_padding_top": 0,
+        "section_curved_padding_bottom": 0,
+        "section_curved_padding_top_mobile": 15,
+        "section_curved_padding_bottom_mobile": 5,
+        "section_blocks_horizontal_alignment": "justify-center",
+        "section_blocks_vertical_alignment": "items-center",
+        "min_height_enabled": true,
+        "even_height_columns_enabled": false,
+        "section_layout_direction": "normal",
+        "background_image_enabled": true,
+        "background_image": "shopify:\/\/shop_images\/37_FAQ_Hero_Banner.png",
+        "background_video_enabled": false,
+        "background_video_type": "youtube",
+        "background_video_id": "",
+        "background_color_enabled": false,
+        "background_color": "#ffffff",
+        "background_curve_enabled": true,
+        "background_curve": "bottom-even",
+        "background_two_tone_enabled": false,
+        "background_two_tone_color": "#bffaea",
+        "tabs_enabled": false,
+        "slider_enabled": false,
+        "slider_enabled_mobile": false,
+        "slider_enable_autoplay": false,
+        "slider_autoplay_time": 5
+      }
+    },
+    "faqs2": {
+      "type": "rs-faq",
+      "blocks": {
+        "104ce3b4-cd8f-4efb-ae85-a89940faddbb": {
+          "type": "heading",
+          "settings": {
+            "title": "How To Lumos Smile"
+          }
+        },
+        "4262ce43-5203-4e3e-970a-292717f9979a": {
+          "type": "question",
+          "settings": {
+            "question": "How long do I whiten my teeth for?",
+            "answer": "<p>We recommend starting with 5-7 applications of 45 minutes – 1 hour and then working your way up to applications of 2 hours as your teeth are comfortable. If you have sensitive teeth, you will want to stick with shorter sessions and may need to skip a day. <\/p>"
+          }
+        },
+        "7b8ae3f8-3d06-4bdd-8355-156be71eb8e0": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use the desensitizing gel?",
+            "answer": "<p>Lumos Smile desensitizing gel is to help those who have sensitive teeth. After each whitening gel session, clean out the left over residue in your custom-fit tray and gently brush off the excess gel from your teeth. Simply apply the desensitizing gel the same way as the whitening gel after each whitening session for 20 minutes. After 20 minutes you can remove the tray and leave the remaining desensitizing gel residue on your teeth. If tooth sensitivity is not relieved after using desensitizing gel, please consult a dental professional.<\/p>"
+          }
+        },
+        "9ea82e34-15f3-4328-868d-58029e809cfc": {
+          "type": "question",
+          "settings": {
+            "question": "How many applications are in each syringe?",
+            "answer": "<p>Each syringe of whitening and desensitizing gel will provide 3 treatments for both upper and lower custom-fit trays. Make sure you recap your gel after each session.<\/p>"
+          }
+        },
+        "43daacbe-b45f-475c-af6e-32e8410c5497": {
+          "type": "question",
+          "settings": {
+            "question": "How do I care for my custom-fit trays?",
+            "answer": "<p>After each whitening session you should clean out the left over gel residue with a toothbrush and warm water.<\/p>"
+          }
+        },
+        "6c63fc9a-6036-4d01-af19-877e578716ea": {
+          "type": "question",
+          "settings": {
+            "question": "How do I maintain my Lumos Smile?",
+            "answer": "<p>Since life stains, keeping a brite white bite requires maintenance. After your initial treatment of 5-7 sessions consecutively, we recommend you whiten monthly for 2-3 sessions consecutively to maintain and further brighten your bite.<\/p>"
+          }
+        },
+        "59dd8de9-c2ce-4e55-bead-bfc679fd9938": {
+          "type": "question",
+          "settings": {
+            "question": "What food and drinks should I avoid while using Lumos Smile?",
+            "answer": "<p>Anything that can stain a white shirt can stain your teeth - try and avoid foods rich in color like tomato sauce  and black coffee while you are whitening your teeth. Keeping to a clear and white diet will ensure the best results.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "104ce3b4-cd8f-4efb-ae85-a89940faddbb",
+        "4262ce43-5203-4e3e-970a-292717f9979a",
+        "7b8ae3f8-3d06-4bdd-8355-156be71eb8e0",
+        "9ea82e34-15f3-4328-868d-58029e809cfc",
+        "43daacbe-b45f-475c-af6e-32e8410c5497",
+        "6c63fc9a-6036-4d01-af19-877e578716ea",
+        "59dd8de9-c2ce-4e55-bead-bfc679fd9938"
+      ],
+      "settings": {}
+    },
+    "faqs6": {
+      "type": "rs-faq",
+      "blocks": {
+        "feb015d9-712e-46ce-8dd4-c35700104c95": {
+          "type": "heading",
+          "settings": {
+            "title": "Science & Results"
+          }
+        },
+        "a463f3d8-b596-4213-91ee-cec9f5065631": {
+          "type": "question",
+          "settings": {
+            "question": "What Kind Of Results Can I Expect?",
+            "answer": "<p>You will see results with each application. The more consistently you use Lumos Smile, the brighter your bite will get! Lumos Smile is clinically proven to whiten teeth an average of five shades over the course of one treatment (one treatment = five to seven days consecutively). Keep in mind that everyone&rsquo;s smile is unique, and there are many factors involved that affect teeth whitening, including age, genetics and lifestyle. For that reason, some people&rsquo;s teeth will whiten faster; some will take more time.<\/p>"
+          }
+        },
+        "7e657678-98fa-453e-86eb-27e21909a94d": {
+          "type": "question",
+          "settings": {
+            "question": "How Does Teeth Whitening Work?",
+            "answer": "<p>Teeth whitening is the removal of stains and discolorations from the enamel and dentin. The outer layer of the tooth is enamel, and beneath the enamel is dentin. Enamel is thin and typically clear in color, while dentin is darker in color and makes up the bulk of the tooth. Enamel can get discolored over time simply from age, but also from outside sources like coffee, tea, tobacco, and other foods and beverages rich in color.<\/p><p><br\/>Whitening your teeth removes these stains and discolorations, giving you a bright white bite. The active ingredients in Lumos Smile teeth whitening gels pass into your teeth to oxidize the stained molecules deep down in your teeth, removing stains and whitening your smile. Our formula is sticky and viscous, so it stays where it’s placed. This unique feature prevents the teeth whitening gel from seeping out during treatment, ensuring both the gel and tray stay in place and work effectively for the duration of your treatment.<\/p>"
+          }
+        },
+        "ed931bc9-c3a2-4e4b-9620-7a908b057fed": {
+          "type": "question",
+          "settings": {
+            "question": "What Causes Teeth Sensitivity?",
+            "answer": "<p>Tooth sensitivity is a relatively common side effect of teeth whitening. No harm is caused to your tooth as a result of a whitening treatment, and this discomfort is not an indication of damage to your tooth. If sensitivity occurs, it is most often temporary and will go away when you&rsquo;ve completed the whitening process. We included desensitizing gel with every purchase just in case you do experience tooth sensitivity.<\/p>"
+          }
+        },
+        "ce2206ea-0911-4126-a65f-4750f4dd91ba": {
+          "type": "question",
+          "settings": {
+            "question": "How Does Desensitizing Gel Work?",
+            "answer": "<p>Lumos Smile desensitizing gel is to help those who have sensitive teeth. After each whitening gel session, clean out the left over residue in your custom-fit tray and gently brush off the excess gel from your teeth. Simply apply the desensitizing gel the same way as the whitening gel after each whitening session for 20 minutes. After 20 minutes you can remove the tray and leave the remaining desensitizing gel residue on your teeth. If tooth sensitivity is not relieved after using desensitizing gel, please consult a dental professional.<\/p>"
+          }
+        },
+        "ae601030-d3de-4456-ada0-c82c692fa2af": {
+          "type": "question",
+          "settings": {
+            "question": "Will Lumos Smile Whiten Existing Dental Work?",
+            "answer": "<p>No, only natural tooth structure can be whitened, any crowns or fillings that you have will not react to our whitening products. If you have a crown or a filling that is easily visible, talk to your dentist about different options for improving your smile.<\/p>"
+          }
+        },
+        "9fb1b37d-164e-4d59-98ab-8b2a0302b2d4": {
+          "type": "question",
+          "settings": {
+            "question": "Why Do My Teeth Appear Spotty After A Whitening Session?",
+            "answer": ""
+          }
+        },
+        "babc527c-d8a5-41c5-a24d-80bda1c9f0ba": {
+          "type": "question",
+          "settings": {
+            "question": "When Will I See Results?",
+            "answer": ""
+          }
+        },
+        "37e43a04-56ac-4b4c-9dc5-563e674ab983": {
+          "type": "question",
+          "settings": {
+            "question": "Can I Use My Invisalign Trays To Whiten My Teeth?",
+            "answer": "<p><br\/><strong>You will NOT see good results when using invisalign trays to whiten your teeth.<\/strong> Our custom-fitted teeth whitening trays are very different from Invisalign retainers. Invisalign is designed to help shift your teeth during orthodontic procedures. They are made from rigid material and have an incredibly snug fit. Using invisalign trays to whiten will result in all the whitening gel oozing out. This will waste the gel and cause irritation to the tissues in your mouth. Our custom-fitted teeth whitening trays are made with thin and flexible. They are also designed with a reservoir so gel can stay in constant contact with the teeth (instead of oozing out).<\/p>"
+          }
+        },
+        "c928237d-9044-402a-a6cb-8f077215e0e3": {
+          "type": "question",
+          "settings": {
+            "question": "How To Maintain Your Brite White Bite?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "feb015d9-712e-46ce-8dd4-c35700104c95",
+        "a463f3d8-b596-4213-91ee-cec9f5065631",
+        "7e657678-98fa-453e-86eb-27e21909a94d",
+        "ed931bc9-c3a2-4e4b-9620-7a908b057fed",
+        "ce2206ea-0911-4126-a65f-4750f4dd91ba",
+        "ae601030-d3de-4456-ada0-c82c692fa2af",
+        "9fb1b37d-164e-4d59-98ab-8b2a0302b2d4",
+        "babc527c-d8a5-41c5-a24d-80bda1c9f0ba",
+        "37e43a04-56ac-4b4c-9dc5-563e674ab983",
+        "c928237d-9044-402a-a6cb-8f077215e0e3"
+      ],
+      "settings": {}
+    },
+    "faqs1": {
+      "type": "rs-faq",
+      "blocks": {
+        "9e52898f-82fe-41f6-8b65-3bce8aca3b24": {
+          "type": "heading",
+          "settings": {
+            "title": "Product"
+          }
+        },
+        "35d6a31d-b87d-46a7-b413-f191cd5cf8a1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Lumos Smile safe?",
+            "answer": "<p>Studies from the Academy of General Dentistry, during the past five years have proven the lab direct teeth whitening process to be safe and effective. A small percentage of people may experience some tooth sensitivity and\/or gum irritation, which disappears once you stop using our product or by decreasing the amount of time you whiten you teeth.<\/p><p>As with anything, abuse of a product can result in undesirable consequences. In the event that you are unsure of your current oral health, talk with your dentist prior to whitening.<\/p>"
+          }
+        },
+        "2cbb72d9-c222-461d-88c3-8929835f8537": {
+          "type": "question",
+          "settings": {
+            "question": "Am I a candidate for Lumos Smile custom-fit trays?",
+            "answer": "<p>Generally, anyone with healthy gums and teeth that are looking to brighten up their smile can benefit from using Lumos Smile. Our product has been shown to be highly effective at removing stains from teeth, including tobacco, coffee, tea, and various other tooth stains. Our teeth whitening system will not affect existing dental work.<\/p>"
+          }
+        },
+        "b7ac586d-4536-4d49-8d59-3adec81b535d": {
+          "type": "question",
+          "settings": {
+            "question": "Why are custom-fitted trays better than other teeth whitening procedures?",
+            "answer": "<p>All teeth whitening products on the market work by absorbing into the teeth and lifting stains through the open pores. The key to truly professional results is the custom-fitted whitening trays. Our trays ensure that every angle of every tooth receives even and consistent coverage of whitening gel on every tooth (regardless of how straight your teeth are). Custom-fitted whitening trays is the most effective whitening procedure offered by cosmetic dentists nationwide.<\/p>"
+          }
+        },
+        "0ed9d46c-b8e1-4fdc-a70f-2b758b515e60": {
+          "type": "question",
+          "settings": {
+            "question": "How does this product compare to teeth whitening offered by my dentist?",
+            "answer": "<p>Lumos Smile is the exact same custom-fit teeth whitening trays your dentist makes but at a fraction of the cost. We eliminate the trips to your dental office and save you money. The average dental office charges $700+ for the same service.<\/p>"
+          }
+        },
+        "308a4f66-a36e-4754-8448-21852131173c": {
+          "type": "question",
+          "settings": {
+            "question": "What is the shelf life of Lumos Smile teeth whitening and desensitizing gel?",
+            "answer": "<p>Each of our 3ml syringes of teeth whitening gel and desensitizing gel will remain effective for 2 years.<\/p>"
+          }
+        },
+        "d9ab2bbf-57b5-40f2-9b51-5db95496a068": {
+          "type": "question",
+          "settings": {
+            "question": "Where Do I Store My Whitening and Desensitizing gels?",
+            "answer": "<p>We recommend storing your gels in your refrigerator. A cooler temperature will maintain the strength and viscosity of your gels which ensures the best results. <br\/><br\/><\/p>"
+          }
+        },
+        "74fcfa51-1653-4408-9b9c-23291a6d302e": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a deadline for sending back my impressions?",
+            "answer": "<p>No, we’d be glad to create your custom-fitted trays whenever you send in your impressions.<\/p>"
+          }
+        },
+        "9f2fb997-2a13-45ba-bbbc-165e4ae02766": {
+          "type": "question",
+          "settings": {
+            "question": "Can I Track My Order?",
+            "answer": "<p>We will alert you when you receive your impression back and when your custom-fit Lumos Smile trays are on the way!<\/p>"
+          }
+        },
+        "ec23cc6c-4a76-4314-a10c-cc066ac8a2c8": {
+          "type": "question",
+          "settings": {
+            "question": "How Long Does It Take Before I Get My Custom-fitted Whitening Trays?",
+            "answer": "<p>Once you’ve ordered your impression kit, it will be shipped within 24 business hours. Once shipped, you should receive your kit within 3-4 business days. You will then need to create your dental impressions and send them back to us. We should receive your package within 3-4 business days and our dental lab will then create your custom-fit whitening trays. The tray creation process takes 3 business days to complete and once your trays have been shipped, they should reach you within 3-4 business days.<\/p>"
+          }
+        },
+        "fad2b62e-55e4-4986-983e-eaa1f44639da": {
+          "type": "question",
+          "settings": {
+            "question": "Where do I ship my impression?",
+            "answer": "<p>Inside your box you will find a pre-paid return shipping label, just pop your impressions trays in the bubble mailer and mail it!<\/p>"
+          }
+        },
+        "a661a35b-1c58-4dc1-ab53-e3ed984d2a95": {
+          "type": "question",
+          "settings": {
+            "question": "What Happens If You Make A Mistake On Your Impressions?",
+            "answer": "<p>Don’t worry, we included an extra set of putty just in case this happens. You can correct it by removing the putty from the impression trays and give it another go! If our lab receives distorted impressions that prevent them from making accurate custom-fit trays, we will contact you regarding sending another impression kit, for free.<\/p>"
+          }
+        },
+        "49ba5765-a324-41dc-b237-e0d19ce391d5": {
+          "type": "question",
+          "settings": {
+            "question": "",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "9e52898f-82fe-41f6-8b65-3bce8aca3b24",
+        "35d6a31d-b87d-46a7-b413-f191cd5cf8a1",
+        "2cbb72d9-c222-461d-88c3-8929835f8537",
+        "b7ac586d-4536-4d49-8d59-3adec81b535d",
+        "0ed9d46c-b8e1-4fdc-a70f-2b758b515e60",
+        "308a4f66-a36e-4754-8448-21852131173c",
+        "d9ab2bbf-57b5-40f2-9b51-5db95496a068",
+        "74fcfa51-1653-4408-9b9c-23291a6d302e",
+        "9f2fb997-2a13-45ba-bbbc-165e4ae02766",
+        "ec23cc6c-4a76-4314-a10c-cc066ac8a2c8",
+        "fad2b62e-55e4-4986-983e-eaa1f44639da",
+        "a661a35b-1c58-4dc1-ab53-e3ed984d2a95",
+        "49ba5765-a324-41dc-b237-e0d19ce391d5"
+      ],
+      "settings": {}
+    },
+    "faqs4": {
+      "type": "rs-faq",
+      "blocks": {
+        "faad5332-70e2-4e29-995b-25252958639e": {
+          "type": "heading",
+          "settings": {
+            "title": "Helpful Tips"
+          }
+        },
+        "187fd1d6-b983-4eb9-abcf-d9fa6891823a": {
+          "type": "question",
+          "settings": {
+            "question": "Experiencing Gum Irritation?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        },
+        "6b9f1b50-d2d3-4f40-9907-e12f3c026cd9": {
+          "type": "question",
+          "settings": {
+            "question": "When Is The Best Time To Whiten Your Teeth?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faad5332-70e2-4e29-995b-25252958639e",
+        "187fd1d6-b983-4eb9-abcf-d9fa6891823a",
+        "6b9f1b50-d2d3-4f40-9907-e12f3c026cd9"
+      ],
+      "settings": {}
+    },
+    "faqs5": {
+      "type": "rs-faq",
+      "blocks": {
+        "9239b849-9163-4334-81d0-f0e78e7bb8ae": {
+          "type": "heading",
+          "settings": {
+            "title": "Shipping & Returns"
+          }
+        },
+        "8002f340-704c-4261-a658-b6e377a19213": {
+          "type": "question",
+          "settings": {
+            "question": "Question!",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9239b849-9163-4334-81d0-f0e78e7bb8ae",
+        "8002f340-704c-4261-a658-b6e377a19213"
+      ],
+      "settings": {}
+    },
+    "faqs7": {
+      "type": "rs-faq",
+      "disabled": true,
+      "blocks": {
+        "1abfd19d-f637-45f3-b552-7b5ff974dc55": {
+          "type": "heading",
+          "settings": {
+            "title": "Health & Safety"
+          }
+        },
+        "f81cb619-e8e3-4b91-915c-0d398f175b51": {
+          "type": "question",
+          "settings": {
+            "question": "Question!",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1abfd19d-f637-45f3-b552-7b5ff974dc55",
+        "f81cb619-e8e3-4b91-915c-0d398f175b51"
+      ],
+      "settings": {}
+    },
+    "faqs8": {
+      "type": "rs-faq",
+      "blocks": {
+        "3ead7bce-289b-4a88-afa8-f3533b1da2b7": {
+          "type": "heading",
+          "settings": {
+            "title": "Free Consultation"
+          }
+        },
+        "2db7ec15-eaff-41ef-b513-e4797bdf4d2d": {
+          "type": "question",
+          "settings": {
+            "question": "Question!",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "3ead7bce-289b-4a88-afa8-f3533b1da2b7",
+        "2db7ec15-eaff-41ef-b513-e4797bdf4d2d"
+      ],
+      "settings": {}
+    },
+    "faqs": {
+      "type": "rs-faqs",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "headline": "Stay in the Lumos Loop",
+        "text": "",
+        "success": "Thank you for signing up!"
+      }
+    }
+  },
+  "order": [
+    "section",
+    "faqs2",
+    "faqs6",
+    "faqs1",
+    "faqs4",
+    "faqs5",
+    "faqs7",
+    "faqs8",
+    "faqs",
+    "newsletter"
+  ]
+}

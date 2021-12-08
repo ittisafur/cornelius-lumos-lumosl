@@ -1,0 +1,113 @@
+{% assign lastSeparator = '' %}
+{% capture faqs %}
+{
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        {% if lastSeparator == 'question' -%} }, {%- endif %}
+        {{- block.settings.title | json | escape -}}: {
+      {%- when 'question' -%}
+        {% if lastSeparator == 'question' -%} , {%- endif %}
+        {{- block.settings.question | json | escape -}}: {{- block.settings.answer | json | escape -}}
+    {%- endcase -%}
+  {%- if forloop.last == true -%} } {%- endif %}
+  {% assign lastSeparator = block.type %}
+  {%- endfor -%}
+}
+{% endcapture %}
+
+<section
+  class="vue-faqs faq-questions py-8"
+  data-section-id="{{ section.id }}"
+  data-section-type="faq"
+>
+  <faqs
+    :data="{{- faqs | strip_newlines -}}"
+    :single="true"
+    style="padding-bottom: 1rem;"
+  ></faqs>
+
+  {% if section.settings.cta_enabled %}
+    <div class="w-full mx-auto flex justify-center">
+      <button class="button w-auto button-primary font-semibold tracking-wide text-sm rounded-3xl border-none" style="--background-color-hover:#86AFA4; background: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }};">
+        <a href="{{ section.settings.button_link }}" class="next-step text-xs md:text-lg">{{ section.settings.button_text }}</a>
+      </button>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "RS FAQs (single)",
+  "class": "faq-section",
+  "settings": [
+    // BUTTONS
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_enabled",
+      "default": false,
+      "label": "Enable CTA"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RS FAQs (single)"
+    }
+  ]
+}
+{% endschema %}

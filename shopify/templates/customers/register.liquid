@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="customer register">
+    <h1 class="text-4xl">
+      {{ 'customer.register.title' | t }}
+    </h1>
+    {%- form 'create_customer', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <div class="p-4">
+          <h2 class="form__message" tabindex="-1" autofocus>
+            <svg aria-hidden="true" focusable="false" role="presentation">
+              <use href="#icon-error" />
+            </svg>
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+          <ul> 
+            {%- for field in form.errors -%}
+              <li>
+                {%- if field == 'form' -%}
+                  {{ form.errors.messages[field] }}
+                {%- else -%}
+                  <a href="#RegisterForm-{{ field }}">
+                    {{ form.errors.translated_fields[field] | capitalize }}
+                    {{ form.errors.messages[field] }}
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+      <div class="field">      
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+          autocomplete="given-name"
+          placeholder="{{ 'customer.register.first_name' | t }}"
+        >
+        <label for="RegisterForm-FirstName">
+          {{ 'customer.register.first_name' | t }}
+        </label>
+      </div>
+      <div class="field">
+        <input
+          type="text"
+          name="customer[last_name]"
+          id="RegisterForm-LastName"
+          {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+          autocomplete="family-name"
+          placeholder="{{ 'customer.register.last_name' | t }}"
+        >
+        <label for="RegisterForm-LastName">
+          {{ 'customer.register.last_name' | t }}
+        </label>
+      </div>
+      <div class="field">      
+        <input
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          {% if form.email %} value="{{ form.email }}"{% endif %}
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-email-error"
+          {% endif %}
+          placeholder="{{ 'customer.register.email' | t }}"
+        >
+        <label for="RegisterForm-email">
+          {{ 'customer.register.email' | t }}
+        </label>
+      </div>
+      {%- if form.errors contains 'email' -%}
+        <div class="p-4">
+          <span id="RegisterForm-email-error" class="form__message">
+            <svg aria-hidden="true" focusable="false" role="presentation">
+              <use href="#icon-error" />
+            </svg>
+            {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
+          </span>
+        </div>
+      {%- endif -%}
+      <div class="field">
+        <div class="p-1 medium-gray-stroke text-sm">Password must be at least 8 characters, include at least 1 uppercase character and 1 number.</div>
+        <div class="relative w-full">
+          <svg id="reveal__pw" class="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2" width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 14C8.42746 14 5.80416 12.7966 3.36478 10.8265C1.59601 9.39795 0 7.57127 0 7C0 6.42873 1.59601 4.60205 3.36478 3.17352C5.80416 1.20337 8.42746 0 11 0C13.5725 0 16.1958 1.20337 18.6352 3.17352C20.404 4.60205 22 6.42873 22 7C22 7.57127 20.404 9.39795 18.6352 10.8265C16.1958 12.7966 13.5725 14 11 14ZM11 13C13.3054 13 15.7291 11.8882 18.0069 10.0485C18.8631 9.35702 19.6459 8.59992 20.2595 7.89758C20.5121 7.60849 20.7211 7.34482 20.8644 7.13802C20.9434 7.0241 21 6.91713 21 7C21 7.08287 20.9434 6.9759 20.8644 6.86198C20.7211 6.65518 20.5121 6.39151 20.2595 6.10242C19.6459 5.40008 18.8631 4.64298 18.0069 3.95148C15.7291 2.11183 13.3054 1 11 1C8.69464 1 6.27089 2.11183 3.99309 3.95148C3.1369 4.64298 2.35415 5.40008 1.7405 6.10242C1.48791 6.39151 1.27893 6.65518 1.13559 6.86198C1.05663 6.9759 1 7.08287 1 7C1 6.91713 1.05663 7.0241 1.13559 7.13802C1.27893 7.34482 1.48791 7.60849 1.7405 7.89758C2.35415 8.59992 3.1369 9.35702 3.99309 10.0485C6.27089 11.8882 8.69464 13 11 13ZM11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7C15 9.20914 13.2091 11 11 11ZM11 10C12.6569 10 14 8.65685 14 7C14 5.34315 12.6569 4 11 4C9.34315 4 8 5.34315 8 7C8 8.65685 9.34315 10 11 10Z" fill="#888888"/>
+          </svg>
+          <input
+            type="password"
+            name="customer[password]"
+            id="RegisterForm-password"
+            aria-required="true"
+            {% if form.errors contains 'password' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-password-error"
+            {% endif %}
+            placeholder="{{ 'customer.register.password' | t }}"
+          >
+        </div>
+        <label for="RegisterForm-password">
+          {{ 'customer.register.password' | t }}
+        </label>
+      </div>
+      {%- if form.errors contains 'password' -%}
+        <div class="p-4">
+          <span id="RegisterForm-password-error" class="form__message">
+            <svg aria-hidden="true" focusable="false" role="presentation">
+              <use href="#icon-error" />
+            </svg>
+            {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
+          </span>
+        </div>
+      {%- endif -%}
+
+      <div class="p-4">
+        <button>
+          {{ 'customer.register.submit' | t }}
+        </button>
+
+        <div class="flex justify-start">
+          <span class="mr-2">Already have an Account?</span>
+          <a href="{{ routes.account_login_url }}">{{ 'customer.login_page.sign_in' | t }}</a>
+        </div>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% section 'newsletter' %}
+
+<script>
+  document.getElementById('reveal__pw').addEventListener('click', function () {
+    var pwField = document.getElementById('RegisterForm-password');
+    if (pwField.type === 'password') {
+      pwField.type = 'text';
+    } else if (pwField.type === 'text') {
+      pwField.type = 'password';
+    }
+  });
+</script>

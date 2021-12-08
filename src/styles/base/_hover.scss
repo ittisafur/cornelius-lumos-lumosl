@@ -1,0 +1,11 @@
+.hover-child {
+	&__dark-green-fill {
+		cursor: pointer;
+		&:hover {
+			.child {
+				background: $color-dark-green;
+				color: $color-white;
+			}
+		}
+	}
+}

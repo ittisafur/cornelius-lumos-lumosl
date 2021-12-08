@@ -1,0 +1,21 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Shopify Theme Lab",
+    "theme_version": "1.0.0",
+    "theme_author": "THEME_AUTHOR",
+    "theme_documentation_url": "https:\/\/THEME_DOCUMENTATION_URL.com",
+    "theme_support_url": "https:\/\/THEME_SUPPORT_URL.com"
+  },
+  {
+    "name": "Cart Settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subscription_disclaimer",
+        "label": "Subscription Disclaimer",
+        "default": "By completing purchase, you agree that unless you cancel, your subscription will automatically renew every 3 months and you authorize Lumos Smile to charge your credit\/debit card $32 + tax for each shipment. Cancel anytime by logging into your Account Management page and clicking the Cancel button 3 business days in advance of your next shipment to avoid future charges."
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+# This workflow deploys new pushes to release/_candidate branch
+# to the themeid specified in config.yml env 
+# with env label specified by secrets.SHOPIFY_ENV_LABEL_RELEASECANDIDATE
+
+name: BTV_ReleaseCandidateMergeAndDeploy
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ release/_candidate ]
+  workflow_dispatch: # allows to manually run from GitHub actions panel
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies and build dist files
+        run: |
+          npm install -g yarn # Extra Step
+          yarn install
+          yarn build
+
+      # make sure the theme is already initialized on the Shopify store
+      - name: Deploy to Shopify
+        run: |
+          yarn deploy:release --password=${{ secrets.SHOPIFY_PASSWORD }} --store=${{ secrets.SHOPIFY_STORE_URL }} --themeid=${{ secrets.SHOPIFY_ENV_THEMEID_RELEASECANDIDATE }} --dir=${{ secrets.THEME_PATH }}
+
+        # this syncs down the current settings jsons from shopify first before deploying
+        # yarn settings:${{ secrets.SHOPIFY_ENV }}

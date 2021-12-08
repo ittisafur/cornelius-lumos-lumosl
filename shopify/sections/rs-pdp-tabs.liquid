@@ -1,0 +1,38 @@
+{%- capture tabs -%}
+{
+  "Product Details": {{- product.metafields.tabs.product_details.value | json -}},
+  "Shipping & Returns": {{- product.metafields.tabs.shipping_returns.value | json -}},
+  "Reviews": {{- product.metafields.okendo.ProductReviewsWidgetSnippet | json -}}
+}
+{%- endcapture -%}
+
+{%- assign parts = product.metafields.okendo.ProductReviewsWidgetSnippet | split: '<script>' -%}
+{%- assign script = parts.last | remove: '</script>' | replace: '();', '()' -%}
+
+<div class="container">
+  <div class="vue-tabs-accordions">
+    <tabs-accordions
+      :data='{{- tabs | strip_newlines | escape -}}'
+      type="all"
+      :accordion-background-enabled="false"
+      :init-reviews-widget="true"
+      :reviews-stars='{{- product.metafields.okendo.ProductListingSnippet | strip_newlines | json | escape -}}'
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('vue:component:tabs-accordions:clicked', (e) => { setTimeout(() => { eval({{ script }}); }, 100); });
+</script>
+
+{% schema %}
+{
+  "name": "RS Product Tabs",
+  "class": "rs-pdp-tabs",
+  "presets": [
+    {
+      "name": "RS Product Tabs"
+    }
+  ]
+}
+{% endschema %}

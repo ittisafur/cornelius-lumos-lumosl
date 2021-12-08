@@ -1,0 +1,61 @@
+//tailwind breakpoints
+$desktopL: 1535px;
+$desktop: 1279px;
+$tablet: 1023px;
+$mobile: 767px;
+$small: 639px;
+
+//z-index numbers
+/*================ Z-Index ================*/
+$z-index-dropdown: 5;
+$z-index-product-card: 1;
+$z-index-collection-card: 1;
+$z-index-header-search-input: 1;
+$z-index-header-search-submit: 2;
+$z-index-content: 2;
+$z-index-drawer: 100;
+$z-index-drawer-overlay: 9; // should be high enough to cover all content
+$z-index-stickynav: 5;
+$z-index-nav-links: 7; // must be at least 2 higher than dropdown
+$z-index-notification: 4;
+$z-index-modal: 15;
+$z-index-skip-to-content: 10000;
+$z-index-video-overlay: 15;
+$z-index-video-content: 16;
+
+/*================ Option Selector (selected) ================*/
+$selected: #AD000B;
+
+/*================ General colors ================*/
+$color-body-text: #000;
+$color-body: #FFF;
+$color-content: #FFF;
+$color-border: #000;
+$color-border-body-darken: darken($color-body, 10%);
+$color-heading: #F5F5F5;
+$color-fixed-white: #FFF;
+$color-fixed-black: #000;
+
+/*================ Drawers ================*/
+$drawer-width: 450px;
+$drawer-transition: all 0.35s cubic-bezier(0.33, 0.59, 0.14, 1);
+$drawer-content-transition-open: all 0.35s cubic-bezier(0.33, 0.59, 0.14, 1);
+$drawer-content-transition-close: all 0.35s cubic-bezier(0.33, 0.59, 0.14, 1);
+$color-drawer: $color-content;
+$color-drawer-sublist: $color-body;
+$color-drawer-text: darken($color-body-text, 25%);
+$color-drawer-shadow: rgba(0, 0, 0, 0.1);
+$drawer-link-size: em(26);
+
+/*================ Sizing Variables ================*/
+$width-site: 1280px;
+$gutter-site: 20px;
+$gutter-heading: 20px;
+
+/*================ Forms ================*/
+$color-form: #f4f4f4;
+$color-form-text: #333;
+$input-padding-top-bottom: 13px;
+$input-padding-left-right: 15px;
+$input-group-height: 48px;
+$width-qty-btn: 30px;

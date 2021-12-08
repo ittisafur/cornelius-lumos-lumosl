@@ -1,0 +1,40 @@
+.button {
+  @apply w-full inline-block border text-base font-medium text-center transition duration-150 px-6 py-2;
+
+  @screen sm {
+    @apply w-auto;
+  }
+
+  &.mint-fill {
+    &:hover {
+      background-color: #E5FFFF; // $color-mint-hover;
+    }
+  }
+
+  &.dark-green-fill {
+    &:hover {
+      background-color: lighten($color: $color-dark-green, $amount: 10);
+    }
+  }
+
+  &.sage-fill {
+    &:hover {
+      background-color: darken($color: $color-dark-green, $amount: 10);
+    }
+  }
+
+  &.white-fill {
+    &:hover {
+      background-color: darken($color: $color-white, $amount: 10);
+    }
+  }
+}
+
+.rs-section--container {
+  .newsletter, #email_signup {
+    button {
+      @apply py-3;
+      width: auto!important;
+    }
+  }
+}

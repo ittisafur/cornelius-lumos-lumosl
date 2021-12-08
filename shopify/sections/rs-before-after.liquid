@@ -1,0 +1,627 @@
+{%- capture block_settings -%}
+{
+  "section_header": "{{ section.settings.section_heading }}",
+  "section_heading_color": "{{ section.settings.section_heading_color }}",
+  "section_heading_color_mobile": "{{ section.settings.section_heading_color_mobile }}",
+  "section_heading_fontsize": "{{ section.settings.section_heading_fontsize }}",
+  "section_heading_fontsize_mobile": "{{ section.settings.section_heading_fontsize_mobile }}",
+  "section_heading_fontweight": "{{ section.settings.section_heading_fontweight }}",
+  "section_heading_text_alignment": "{{ section.settings.section_heading_text_alignment }}",
+  "section_sub_header": "{{ section.settings.section_sub_heading }}",
+  "section_sub_heading_color": "{{ section.settings.section_sub_heading_color }}",
+  "section_sub_heading_color_mobile": "{{ section.settings.section_sub_heading_color_mobile }}",
+  "section_sub_heading_fontsize": "{{ section.settings.section_sub_heading_fontsize }}",
+  "section_sub_heading_fontsize_mobile": "{{ section.settings.section_sub_heading_fontsize_mobile }}",
+  "section_sub_heading_fontweight": "{{ section.settings.section_sub_heading_fontweight }}",
+  "section_sub_heading_text_alignment": "{{ section.settings.section_sub_heading_text_alignment }}",
+  "button_text": "{{ section.settings.button_text }}",
+  "button_link": "{{ section.settings.button_link }}",
+  "button_color": "{{ section.settings.button_color }}",
+  "button_text_color": "{{ section.settings.button_text_color }}",
+  "link_text": "{{ section.settings.link_text }}",
+  "link_href": "{{ section.settings.link_href }}",
+  "link_color": "{{ section.settings.link_color }}",
+  "background_image_enabled": "{{ section.settings.background_image_enabled }}",
+  "background_image": "{{ section.settings.background_image }}",
+  "background_video_enabled": "{{ section.settings.background_video_enabled }}",
+  "background_video_type": "{{ section.settings.background_video_type }}",
+  "background_video_id": "{{ section.settings.background_video_id }}",
+  "background_color_enabled": "{{ section.settings.background_color_enabled }}",
+  "background_color": "{{ section.settings.background_color }}",
+  "background_curve_enabled": "{{ section.settings.background_curve_enabled }}",
+  "background_curve": "{{ section.settings.background_curve }}",
+  "blocks": [
+    {%- for block in section.blocks -%}
+      {
+        "b_and_a-name": "{{ block.settings.b_and_a-name }}",
+        "b_and_a-profile_image": "{{ block.settings.b_and_a-profile_image | img_url: 'master' | prepend: 'https:' }}",
+        "b_and_a-before_image": "{{ block.settings.b_and_a-before_image | img_url: 'master' | prepend: 'https:' }}",
+        "b_and_a-after_image": "{{ block.settings.b_and_a-after_image | img_url: 'master' | prepend: 'https:' }}",
+        "before": "{{ block.settings.before }}",
+        "before_color": "{{ block.settings.before_color }}",
+        "before_color_mobile": "{{ block.settings.before_color_mobile }}",
+        "before_fontsize": "{{ block.settings.before_fontsize }}",
+        "before_fontsize_mobile": "{{ block.settings.before_fontsize_mobile }}",
+        "before_fontweight": "{{ block.settings.before_fontweight }}",
+        "after": "{{ block.settings.after }}",
+        "after_color": "{{ block.settings.after_color }}",
+        "after_color_mobile": "{{ block.settings.after_color_mobile }}",
+        "after_fontsize": "{{ block.settings.after_fontsize }}",
+        "after_fontsize_mobile": "{{ block.settings.after_fontsize_mobile }}",
+        "after_fontweight": "{{ block.settings.after_fontweight }}",
+        "text_alignment": "{{ block.settings.text_alignment }}",
+        "text_alignment_mobile": "{{ block.settings.text_alignment_mobile }}"
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+{%- endcapture -%}
+
+<section class="vue-rs-before-after" data-section-id="{{ section.id }}" data-section-type="section-component">
+  <rs-before-after
+    :section-settings='{{- block_settings -}}'
+    files-url='{{- "" | file_url | url_param_escape | escape -}}'
+    shop-url='{{- shop.secure_url -}}'
+    section-id='{{- section.id -}}'
+  >
+    {%- for block in section.blocks -%}
+      <template slot="html-{{ forloop.index0 }}">{{ block.settings.html }}</template>
+    {%- endfor -%}
+  </rs-before-after>
+</section>
+
+{% comment %} k4mvgM3OPpA {% endcomment %}
+
+{% schema %}
+{
+  "name": "RS Before & After",
+  "settings": [
+    // HEADING
+    {
+      "type": "header",
+      "content": "Section Heading settings"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color_mobile",
+      "label": "Text Color (Mobile)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "section_heading_fontsize",
+      "label": "Font Size",
+      "options": [
+        { "value": "text-xs", "label": "Extra Small" },
+        { "value": "text-sm", "label": "Small" },
+        { "value": "text-lg", "label": "Large" },
+        { "value": "text-xl", "label": "Extra Large" },
+        { "value": "text-2xl", "label": "2X Large" },
+        { "value": "text-3xl", "label": "3X Large" },
+        { "value": "text-4xl", "label": "4X Large" },
+        { "value": "text-5xl", "label": "5X Large" },
+        { "value": "text-6xl", "label": "6X Large" },
+        { "value": "text-7xl", "label": "7X Large" },
+        { "value": "text-8xl", "label": "8X Large" }
+      ],
+      "default": "text-5xl"
+    },
+    {
+      "type": "select",
+      "id": "section_heading_fontsize_mobile",
+      "label": "Font Size (Mobile)",
+      "options": [
+        { "value": "text-xs", "label": "Extra Small" },
+        { "value": "text-sm", "label": "Small" },
+        { "value": "text-lg", "label": "Large" },
+        { "value": "text-xl", "label": "Extra Large" },
+        { "value": "text-2xl", "label": "2X Large" },
+        { "value": "text-3xl", "label": "3X Large" },
+        { "value": "text-4xl", "label": "4X Large" },
+        { "value": "text-5xl", "label": "5X Large" },
+        { "value": "text-6xl", "label": "6X Large" },
+        { "value": "text-7xl", "label": "7X Large" },
+        { "value": "text-8xl", "label": "8X Large" }
+      ],
+      "default": "text-3xl"
+    },
+    {
+      "type": "select",
+      "id": "section_heading_fontweight",
+      "label": "Font Weight",
+      "options": [
+        { "value": "font-normal", "label": "Normal" },
+        { "value": "font-semibold", "label": "Semibold" },
+        { "value": "font-bold", "label": "Bold" }
+      ],
+      "default": "font-bold"
+    },
+    {
+      "type": "select",
+      "id": "section_heading_text_alignment",
+      "label": "Text Alignment",
+      "default":"text-left",
+      "options": [
+        {
+          "value":"text-left",
+          "label":"Left"
+        },
+        {
+          "value":"text-center",
+          "label":"Center"
+        },
+        {
+          "value":"text-right",
+          "label":"Right"
+        }
+      ]
+    },
+    // SUBHEADING
+    {
+      "type": "header",
+      "content": "Section Sub-Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_sub_heading",
+      "label": "Section Sub-Heading"
+    },
+    {
+      "type": "color",
+      "id": "section_sub_heading_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "section_sub_heading_color_mobile",
+      "label": "Text Color (Mobile)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "section_sub_heading_fontsize",
+      "label": "Font Size",
+      "options": [
+        { "value": "text-xs", "label": "Extra Small" },
+        { "value": "text-sm", "label": "Small" },
+        { "value": "text-lg", "label": "Large" },
+        { "value": "text-xl", "label": "Extra Large" },
+        { "value": "text-2xl", "label": "2X Large" },
+        { "value": "text-3xl", "label": "3X Large" },
+        { "value": "text-4xl", "label": "4X Large" },
+        { "value": "text-5xl", "label": "5X Large" },
+        { "value": "text-6xl", "label": "6X Large" },
+        { "value": "text-7xl", "label": "7X Large" },
+        { "value": "text-8xl", "label": "8X Large" }
+      ],
+      "default": "text-5xl"
+    },
+    {
+      "type": "select",
+      "id": "section_sub_heading_fontsize_mobile",
+      "label": "Font Size (Mobile)",
+      "options": [
+        { "value": "text-xs", "label": "Extra Small" },
+        { "value": "text-sm", "label": "Small" },
+        { "value": "text-lg", "label": "Large" },
+        { "value": "text-xl", "label": "Extra Large" },
+        { "value": "text-2xl", "label": "2X Large" },
+        { "value": "text-3xl", "label": "3X Large" },
+        { "value": "text-4xl", "label": "4X Large" },
+        { "value": "text-5xl", "label": "5X Large" },
+        { "value": "text-6xl", "label": "6X Large" },
+        { "value": "text-7xl", "label": "7X Large" },
+        { "value": "text-8xl", "label": "8X Large" }
+      ],
+      "default": "text-3xl"
+    },
+    {
+      "type": "select",
+      "id": "section_sub_heading_fontweight",
+      "label": "Font Weight",
+      "options": [
+        { "value": "font-normal", "label": "Normal" },
+        { "value": "font-semibold", "label": "Semibold" },
+        { "value": "font-bold", "label": "Bold" }
+      ],
+      "default": "font-normal"
+    },
+    {
+      "type": "select",
+      "id": "section_sub_heading_text_alignment",
+      "label": "Text Alignment",
+      "default":"text-left",
+      "options": [
+        {
+          "value":"text-left",
+          "label":"Left"
+        },
+        {
+          "value":"text-center",
+          "label":"Center"
+        },
+        {
+          "value":"text-right",
+          "label":"Right"
+        }
+      ]
+    },
+    // CTA BUTTON
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    // CTA LINK
+    {
+      "type": "header",
+      "content": "Link Settings"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_href",
+      "label": "Link"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#ffffff"
+    },
+    // BACKGROUND IMAGE
+    {
+      "type": "header",
+      "content": "Background image settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "background_image_enabled",
+      "default": false,
+      "label": "Enable Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    // BACKGROUND VIDEO
+    {
+      "type": "header",
+      "content": "Background video settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "background_video_enabled",
+      "default": false,
+      "label": "Enable Background Video"
+    },
+    {
+      "type": "select",
+      "id": "background_video_type",
+      "label": "Video Source",
+      "default":"youtube",
+      "options": [
+        {
+          "value":"youtube",
+          "label":"YouTube"
+        },
+        {
+          "value":"vimeo",
+          "label":"Vimeo"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "background_video_id",
+      "label": "Video ID"
+    },
+    // BACKGROUND COLOR
+    {
+      "type": "header",
+      "content": "Background color settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "background_color_enabled",
+      "default": false,
+      "label": "Enable Background Color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    // BACKGROUND CURVE
+    {
+      "type": "checkbox",
+      "id": "background_curve_enabled",
+      "default": false,
+      "label": "Enable Background Curve"
+    },
+    {
+      "type": "select",
+      "id": "background_curve",
+      "label": "Background Curve Direction",
+      "default":"right",
+      "options": [
+        {
+          "value":"left",
+          "label":"Left"
+        },
+        {
+          "value":"right",
+          "label":"Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "before-after",
+      "name": "Before & After",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Before & After"
+        },
+        {
+          "type": "text",
+          "id": "b_and_a-name",
+          "label": "Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "b_and_a-profile_image",
+          "label": "Profile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "b_and_a-before_image",
+          "label": "Before Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "b_and_a-after_image",
+          "label": "After Image"
+        },
+        // BEFORE
+        {
+          "type": "header",
+          "content": "Before Settings"
+        },
+        {
+          "type": "text",
+          "id": "before",
+          "label": "Text",
+          "default": "Before"
+        },
+        {
+          "type": "color",
+          "id": "before_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "before_color_mobile",
+          "label": "Text Color (Mobile)",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "before_fontsize",
+          "label": "Font Size",
+          "options": [
+            { "value": "text-xs", "label": "Extra Small" },
+            { "value": "text-sm", "label": "Small" },
+            { "value": "text-lg", "label": "Large" },
+            { "value": "text-xl", "label": "Extra Large" },
+            { "value": "text-2xl", "label": "2X Large" },
+            { "value": "text-3xl", "label": "3X Large" },
+            { "value": "text-4xl", "label": "4X Large" },
+            { "value": "text-5xl", "label": "5X Large" },
+            { "value": "text-6xl", "label": "6X Large" },
+            { "value": "text-7xl", "label": "7X Large" },
+            { "value": "text-8xl", "label": "8X Large" }
+          ],
+          "default": "text-5xl"
+        },
+        {
+          "type": "select",
+          "id": "before_fontsize_mobile",
+          "label": "Font Size (Mobile)",
+          "options": [
+            { "value": "text-xs", "label": "Extra Small" },
+            { "value": "text-sm", "label": "Small" },
+            { "value": "text-lg", "label": "Large" },
+            { "value": "text-xl", "label": "Extra Large" },
+            { "value": "text-2xl", "label": "2X Large" },
+            { "value": "text-3xl", "label": "3X Large" },
+            { "value": "text-4xl", "label": "4X Large" },
+            { "value": "text-5xl", "label": "5X Large" },
+            { "value": "text-6xl", "label": "6X Large" },
+            { "value": "text-7xl", "label": "7X Large" },
+            { "value": "text-8xl", "label": "8X Large" }
+          ],
+          "default": "text-3xl"
+        },
+        {
+          "type": "select",
+          "id": "before_fontweight",
+          "label": "Font Weight",
+          "options": [
+            { "value": "font-normal", "label": "Normal" },
+            { "value": "font-semibold", "label": "Semibold" },
+            { "value": "font-bold", "label": "Bold" }
+          ],
+          "default": "font-bold"
+        },
+        // AFTER
+        {
+          "type": "header",
+          "content": "After Settings"
+        },
+        {
+          "type": "text",
+          "id": "after",
+          "label": "Text",
+          "default": "After 3 months using Lumos Smile"
+        },
+        {
+          "type": "color",
+          "id": "after_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "after_color_mobile",
+          "label": "Text Color (Mobile)",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "after_fontsize",
+          "label": "Font Size",
+          "options": [
+            { "value": "text-xs", "label": "Extra Small" },
+            { "value": "text-sm", "label": "Small" },
+            { "value": "text-lg", "label": "Large" },
+            { "value": "text-xl", "label": "Extra Large" },
+            { "value": "text-2xl", "label": "2X Large" },
+            { "value": "text-3xl", "label": "3X Large" },
+            { "value": "text-4xl", "label": "4X Large" },
+            { "value": "text-5xl", "label": "5X Large" },
+            { "value": "text-6xl", "label": "6X Large" },
+            { "value": "text-7xl", "label": "7X Large" },
+            { "value": "text-8xl", "label": "8X Large" }
+          ],
+          "default": "text-5xl"
+        },
+        {
+          "type": "select",
+          "id": "after_fontsize_mobile",
+          "label": "Font Size (Mobile)",
+          "options": [
+            { "value": "text-xs", "label": "Extra Small" },
+            { "value": "text-sm", "label": "Small" },
+            { "value": "text-lg", "label": "Large" },
+            { "value": "text-xl", "label": "Extra Large" },
+            { "value": "text-2xl", "label": "2X Large" },
+            { "value": "text-3xl", "label": "3X Large" },
+            { "value": "text-4xl", "label": "4X Large" },
+            { "value": "text-5xl", "label": "5X Large" },
+            { "value": "text-6xl", "label": "6X Large" },
+            { "value": "text-7xl", "label": "7X Large" },
+            { "value": "text-8xl", "label": "8X Large" }
+          ],
+          "default": "text-3xl"
+        },
+        {
+          "type": "select",
+          "id": "after_fontweight",
+          "label": "Font Weight",
+          "options": [
+            { "value": "font-normal", "label": "Normal" },
+            { "value": "font-semibold", "label": "Semibold" },
+            { "value": "font-bold", "label": "Bold" }
+          ],
+          "default": "font-normal"
+        },
+        // TEXT ALIGNMENT
+        {
+          "type": "header",
+          "content": "Text Alignment Settings"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text Alignment",
+          "default":"text-left",
+          "options": [
+            {
+              "value":"text-left",
+              "label":"Left"
+            },
+            {
+              "value":"text-center",
+              "label":"Center"
+            },
+            {
+              "value":"text-right",
+              "label":"Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_mobile",
+          "label": "Text Alignment (Mobile)",
+          "default":"text-left",
+          "options": [
+            {
+              "value":"text-left",
+              "label":"Left"
+            },
+            {
+              "value":"text-center",
+              "label":"Center"
+            },
+            {
+              "value":"text-right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Custom Section",
+      "name": "RS Before & After"
+    }
+  ]
+}
+{% endschema %}

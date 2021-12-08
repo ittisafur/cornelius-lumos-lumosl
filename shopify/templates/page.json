@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "section": {
+      "type": "rs-section-single",
+      "settings": {
+        "section_heading": "",
+        "section_heading_color": "#000000",
+        "section_heading_color_mobile": "#000000",
+        "section_heading_fontsize": "text-5xl",
+        "section_heading_fontsize_mobile": "text-3xl",
+        "section_heading_fontweight": "font-bold",
+        "section_heading_text_alignment": "text-left",
+        "section_heading_text_alignment_mobile": "text-left",
+        "section_sub_heading": "",
+        "section_sub_heading_color": "#000000",
+        "section_sub_heading_color_mobile": "#000000",
+        "section_sub_heading_fontsize": "text-5xl",
+        "section_sub_heading_fontsize_mobile": "text-3xl",
+        "section_sub_heading_fontweight": "font-normal",
+        "section_sub_heading_text_alignment": "text-left",
+        "section_sub_heading_text_alignment_mobile": "text-left",
+        "section_width": "",
+        "section_item_widths": "",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_mobile": 4,
+        "section_padding_bottom_mobile": 4,
+        "section_curved_padding_top": 0,
+        "section_curved_padding_bottom": 0,
+        "section_curved_padding_top_mobile": 15,
+        "section_curved_padding_bottom_mobile": 5,
+        "section_blocks_horizontal_alignment": "justify-center",
+        "section_blocks_vertical_alignment": "items-center",
+        "min_height_enabled": true,
+        "even_height_columns_enabled": false,
+        "section_layout_direction": "normal",
+        "background_image_enabled": false,
+        "background_video_enabled": false,
+        "background_video_type": "youtube",
+        "background_video_id": "",
+        "background_color_enabled": false,
+        "background_color": "#ffffff",
+        "background_curve_enabled": false,
+        "background_curve": "right",
+        "background_two_tone_enabled": false,
+        "background_two_tone_color": "#bffaea",
+        "tabs_enabled": false,
+        "slider_enabled": false,
+        "slider_enabled_mobile": false,
+        "slider_enable_autoplay": true,
+        "slider_autoplay_time": 5
+      }
+    },
+    "page-content": {
+      "type": "page-content",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "headline": "Our newsletter",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos hic praesentium recusandae dolores odio animi deleniti officia cum itaque.",
+        "success": "Thank you for signing up!"
+      }
+    }
+  },
+  "order": [
+    "section",
+    "page-content",
+    "newsletter"
+  ]
+}

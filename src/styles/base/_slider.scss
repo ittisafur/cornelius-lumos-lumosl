@@ -1,0 +1,38 @@
+
+// slick
+.slick-slider {
+  .slick-dots {
+    display: flex!important;
+    justify-content: center;
+
+    li {
+      position: relative;
+      cursor: pointer;
+      width: .5rem;
+      height: .5rem;
+      margin-left: .5rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: inherit;
+        height: inherit;
+        background: $color-inactive;
+      }
+
+      &.slick-active {
+        &:after {
+          background: $color-sage;
+        }
+      }
+
+      button {
+        display: none;
+      }
+    }
+  }
+}

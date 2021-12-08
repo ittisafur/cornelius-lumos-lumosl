@@ -1,0 +1,94 @@
+/*================ swatches ================*/
+
+
+// swatch swatches
+.swatches {
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  .swatch {
+    // flex: 0 calc(100% / 9);
+    width: calc(100% / 9);
+    margin: .5rem;
+    cursor: pointer;
+    max-width: 5rem;
+    max-height: 5rem;
+
+    &:hover, &.selected {
+      .swatch-middle {
+        border: 2px solid $selected;
+      }  
+    }
+
+    .swatch-middle {
+      border-radius: 50%;
+      overflow: hidden;
+      -webkit-transition: border 160ms ease-in;
+      transition: border 160ms ease-in;
+      border: 2px solid transparent;
+
+      .swatch-inner {
+        border-radius: 50%;
+        overflow: hidden;
+
+        .swatch-bg {
+          border-radius: 50%;
+          margin: 2px;
+          box-sizing: content-box;
+          display: block;
+          padding-bottom: calc(100% - 4px);
+        }
+      }
+    }
+  }
+  
+}
+
+
+
+/*=============================================
+Swatch Toggles
+=============================================*/
+
+.hide-swatches,
+.swatch-counter{
+  // font-family: MTTMilano;
+  font-size: 15px;
+  line-height: 1em;
+  color: #333333;
+  cursor: pointer;
+
+  &:hover{
+    color: $selected;
+  }
+}
+
+.hide-swatches{
+  width:100%;
+  margin:10px 0 25px;
+  text-transform: lowercase;
+  font-size: 15px;
+
+  span{
+    border-bottom:1px solid #000;
+  }
+
+  @media (max-width: $mobile) {
+    margin:10px 0;
+    font-size: 12px;
+  }
+}
+
+.swatch-counter{
+  transition: ease-in-out 0.2s;
+  margin-left:4px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  right: -20px;
+  margin-top: -7px;
+
+  @media (max-width: $mobile) {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "1631976824c58d06f0": {
+      "type": "rs-section-single",
+      "blocks": {
+        "38e084f3-f313-4914-8500-a7bbfd89cd47": {
+          "type": "customizable-content",
+          "settings": {
+            "image_enabled": false,
+            "image_fit": "stretch",
+            "image_mobile_full_width": false,
+            "image_position": "justify-center",
+            "image_caption": "",
+            "video_enabled": false,
+            "video_type": "youtube",
+            "video_id": "",
+            "video_object_fit": "contain",
+            "content_enabled": true,
+            "content_for": "standalone",
+            "heading_subheading_section_mobile": false,
+            "content_horizontal_alignment": "justify-center",
+            "content_vertical_alignment": "items-start",
+            "heading": "Bright White Bite Blog",
+            "heading_color": "#fff",
+            "heading_color_mobile": "#fff",
+            "heading_fontsize": "text-5xl",
+            "heading_fontsize_mobile": "text-3xl",
+            "heading_fontweight": "font-bold",
+            "subheading": "Articles & Fun Tid Bits On Teeth Whitening",
+            "subheading_color": "#fff",
+            "subheading_color_mobile": "#fff",
+            "subheading_fontsize": "text-2xl",
+            "subheading_fontsize_mobile": "text-2xl",
+            "subheading_fontweight": "font-normal",
+            "content": "",
+            "content_color": "#000000",
+            "content_color_mobile": "#000000",
+            "content_fontsize": "text-5xl",
+            "content_fontsize_mobile": "text-3xl",
+            "content_fontweight": "font-normal",
+            "text_alignment": "text-left",
+            "text_alignment_mobile": "text-center",
+            "button_text": "",
+            "button_link": "",
+            "button_color": "#ffffff",
+            "button_text_color": "#ffffff",
+            "link_text": "",
+            "link_href": "",
+            "link_color": "#ffffff",
+            "cta_horizontal_alignment": "justify-between",
+            "html_enabled": false,
+            "html": "<div><p>Some HTML content<\/p><\/div>",
+            "html_horizontal_alignment": "justify-center",
+            "html_vertical_alignment": "items-center"
+          }
+        }
+      },
+      "block_order": [
+        "38e084f3-f313-4914-8500-a7bbfd89cd47"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_color": "#000000",
+        "section_heading_color_mobile": "#000000",
+        "section_heading_fontsize": "text-5xl",
+        "section_heading_fontsize_mobile": "text-3xl",
+        "section_heading_fontweight": "font-bold",
+        "section_heading_text_alignment": "text-left",
+        "section_sub_heading": "",
+        "section_sub_heading_color": "#000000",
+        "section_sub_heading_color_mobile": "#000000",
+        "section_sub_heading_fontsize": "text-5xl",
+        "section_sub_heading_fontsize_mobile": "text-3xl",
+        "section_sub_heading_fontweight": "font-normal",
+        "section_sub_heading_text_alignment": "text-left",
+        "section_item_widths": "",
+        "section_blocks_horizontal_alignment": "justify-center",
+        "section_blocks_vertical_alignment": "items-center",
+        "min_height_enabled": true,
+        "section_layout_direction": "normal",
+        "background_image_enabled": true,
+        "background_image": "shopify:\/\/shop_images\/98c6083832905185d798107410d5ccad.png",
+        "background_video_enabled": false,
+        "background_video_type": "youtube",
+        "background_video_id": "",
+        "background_color_enabled": false,
+        "background_color": "#FFFFFF",
+        "background_curve_enabled": true,
+        "background_curve": "bottom-even",
+        "background_two_tone_enabled": false,
+        "background_two_tone_color": "#BFFAEA",
+        "tabs_enabled": false,
+        "slider_enabled": false,
+        "slider_enable_autoplay": false,
+        "slider_autoplay_time": 5
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "show_image": true,
+        "show_date": true,
+        "show_author": false
+      }
+    }
+  },
+  "order": [
+    "1631976824c58d06f0",
+    "main"
+  ]
+}

@@ -1,0 +1,125 @@
+<div class="rs-section--container newsletter" style="padding-bottom: 0px; border-bottom: 1px solid #7DADA0">
+  <div
+    class="section-background curved--single top--right pale-mint-fill py-16 2xl:pt-20"
+    style="--background-clip-path__top: ellipse(200% 100% at 10% -89%);"
+  >
+    <div class="section-overlay w-full h-full flex items-end p-0 lg:p-16">
+      <div class="container">
+        <div id="input-group" class="max-w-screen-sm flex flex-col justify-center items-center mx-auto">
+          <div class="text-2xl lg:text-3xl text-center mb-4 dark-green-stroke">
+            {{ section.settings.headline }}
+          </div>
+
+          <div class="text-center mb-4">
+            {{ section.settings.text }}
+          </div>
+
+          <form id="email_signup" class="w-full" accept-charset="UTF-8">
+            <div>
+              <input type="hidden" name="g" value="TiHKT6">
+              <div class="flex flex-col sm:flex-row mb-4 relative">
+                <input
+                  id="k_id_email"
+                  type="email"
+                  placeholder="Email address"
+                  name="email"
+                  value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+                  class="flex-1 border rounded-full py-3 px-6"
+                  required
+                >
+                <button
+                  type="submit"
+                  class="button button-primary rounded-full py-3 px-4 lg:px-16 dark-green-fill text-white absolute right-0 w-auto"
+                  style="padding-top: .75rem; padding-bottom: .75rem;"
+                >
+                  Sign Up
+                </button>
+              </div>
+              <div id="accepts_marketing" class="flex md:block clearfix large_form">
+                <input type="checkbox" name="customer[accepts_marketing]" checked="checked" value="true" id="marketing" />
+                <label for="marketing" class="ml-2 lg:ml-0 text-sm text-gray-500" style="font-weight:normal; font-size: 10px; line-height: 1.5;">I agree to receive information and offers from Lumos Smile and accept the Privacy Policy</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <p id="signup_note" class="note form-success hidden text-center"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">
+  window.addEventListener("load", function () {
+    function sendData() {
+      const XHR = new XMLHttpRequest();
+      const FD = new FormData(form);
+      const note = document.getElementById('signup_note');
+      const inputGroup = document.getElementById('input-group');
+  
+      // success
+      XHR.addEventListener("load", function(e) {
+        if (note) {
+          note.innerHTML = '{{ section.settings.success }}';
+          note.classList.remove('error-stroke');
+          note.classList.remove('dark-green-stroke');
+          note.classList.add('dark-green-stroke');
+          note.classList.remove('hidden');
+        }
+        if (inputGroup) inputGroup.classList.add('hidden');
+      });
+  
+      // error
+      XHR.addEventListener( "error", function(e) {
+        if (note) {
+          note.innerHTML = 'Error: something went wrong.  Please try again.';
+          note.classList.remove('error-stroke');
+          note.classList.remove('dark-green-stroke');
+          note.classList.add('error-stroke');
+          note.classList.remove('hidden');
+        }
+      });
+  
+      XHR.open("POST", "https://manage.kmail-lists.com/ajax/subscriptions/subscribe");
+      XHR.send(FD);
+    }
+  
+    const form = document.getElementById("email_signup");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      sendData();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name":"Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Our newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos hic praesentium recusandae dolores odio animi deleniti officia cum itaque."
+    },
+    {
+      "type": "text",
+      "id": "success",
+      "label": "Newsletter Success",
+      "default": "Thank you for signing up!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "category": "Forms"
+    }
+  ]
+}
+{% endschema %}

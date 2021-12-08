@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_light_italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_medium_italic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url('../../shopify/assets/apercu_bold_italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_light_italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_medium_italic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'apercu pro';
+  src: url('../../shopify/assets/apercu_pro_bold_italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin Apercu($weight:normal, $style:normal) {
+  font: {
+    family: 'apercu', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin ApercuPro($weight:normal, $style:normal) {
+  font: {
+    family: 'apercu pro', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Archivo($weight:normal, $style:normal) {
+  font: {
+    family: 'Archivo', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin GaramondPro($weight:normal, $style:normal) {
+  font: {
+    family: 'Unna', 'Adobe Garamond Pro', 'Garamond', 'Georgia';
+    weight: $weight;
+    style: $style;
+  }
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+@mixin OpenSans($weight:normal, $style:normal) {
+  font: {
+    family: 'Open Sans', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+@mixin Hind($weight:normal, $style:normal) {
+  font: {
+    family: 'Hind', 'Open Sans', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Unna($weight:normal, $style:normal) {
+  font: {
+    family: 'Unna', serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Futura($weight:normal, $style:normal) {
+  font: {
+    family: "futura-pt",sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Lato($weight:normal, $style:normal) {
+  font: {
+    family: 'Lato', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Work($weight:normal, $style:normal) {
+  font: {
+    family: 'Work Sans', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin Montserrat($weight:normal, $style:normal) {
+  font: {
+    family: 'Montserrat', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

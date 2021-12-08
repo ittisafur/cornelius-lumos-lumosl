@@ -1,0 +1,11 @@
+# this is a sample file for illustration purposes and can be safely deleted
+#
+# if you are manually initializing the local config:
+# don't forget to set the correct environment on the next line, either 'dev:' or 'live:'
+dev:
+  password: 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
+  theme_id: "127653576874"
+  store: lumossmile.myshopify.com
+  directory: shopify
+  ignores:
+    - .config/shopify/.shopifyignore

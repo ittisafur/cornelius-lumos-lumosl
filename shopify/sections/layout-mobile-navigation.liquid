@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="flex justify-between">
+    {% assign link_class = 'flex flex-col justify-center items-center text-xs text-gray-600 font-medium p-0 lg:p-2' %}
+    {% assign icon_class = 'w-auto h-7 text-black mb-2' %}
+
+    <a
+      href="{{ routes.search_url }}"
+      class="{{ link_class }}"
+    >
+      {% render 'icon-search', class: icon_class %}
+      Search
+    </a>
+
+    <a
+      href="{{ routes.cart_url }}"
+      class="{{ link_class }}"
+    >
+      {% comment %} {% render 'icon-cart', class: icon_class %}
+      {{ 'templates.cart.cart' | t }} {% endcomment %}
+      <div class="vue-cart-icon">
+        <cart-icon
+          link-class="{{- link_class -}}"
+          icon-class="{{- icon_class -}}"
+        ></cart-icon>
+      </div>
+      {{ 'templates.cart.cart' | t }}
+    </a>
+
+    {% if shop.customer_accounts_enabled %}
+      <a
+        href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+        class="{{ link_class }}"
+      >
+        {% render 'icon-account', class: icon_class %}
+        {{ 'customer.account.title' | t }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mobile navigation",
+  "class": "mobile-navigation"
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+{
+  "wrapper": "section.cart-section",
+  "sections": {
+    "cart": {
+      "type": "cart-template",
+      "settings": {
+        "rec_prod_heading": ""
+      }
+    },
+    "section": {
+      "type": "rs-section-single",
+      "blocks": {
+        "7c34e5d7-eb35-49f4-9fda-0da3709c4a6b": {
+          "type": "customizable-content",
+          "settings": {
+            "image_enabled": false,
+            "image_fit": "stretch",
+            "image_mobile_full_width": false,
+            "image_position": "justify-center",
+            "video_enabled": false,
+            "video_type": "youtube",
+            "video_id": "",
+            "video_object_fit": "contain",
+            "content_enabled": false,
+            "content_for": "standalone",
+            "content_horizontal_alignment": "justify-center",
+            "content_vertical_alignment": "items-center",
+            "heading": "",
+            "heading_color": "#000000",
+            "heading_color_mobile": "#000000",
+            "heading_fontsize": "text-5xl",
+            "heading_fontsize_mobile": "text-3xl",
+            "heading_fontweight": "font-bold",
+            "subheading": "",
+            "subheading_color": "#000000",
+            "subheading_color_mobile": "#000000",
+            "subheading_fontsize": "text-5xl",
+            "subheading_fontsize_mobile": "text-3xl",
+            "subheading_fontweight": "font-normal",
+            "content": "",
+            "content_color": "#000000",
+            "content_color_mobile": "#000000",
+            "content_fontsize": "text-5xl",
+            "content_fontsize_mobile": "text-3xl",
+            "content_fontweight": "font-normal",
+            "text_alignment": "text-left",
+            "text_alignment_mobile": "text-left",
+            "button_text": "",
+            "button_link": "",
+            "button_color": "#ffffff",
+            "button_text_color": "#ffffff",
+            "link_text": "",
+            "link_href": "",
+            "link_color": "#ffffff",
+            "cta_horizontal_alignment": "justify-between",
+            "html_enabled": true,
+            "html": "<div class=\"lumos-smile w-full p-4 lg:p-16 pale-mint-fill\">\n\t<div class=\"text-3xl lg:text-5xl text-black text-center mb-12\">Why Lumos Smile?<\/div>\n\t<div class=\"flex flex-col lg:flex-row\">\n\t\t<div class=\"p-4 w-full lg:w-1\/3\">\n\t\t\t<img class=\"mx-auto\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0507\/0562\/9354\/files\/panel-one.png?v=1622410258\">\n\t\t\t<div class=\"text-center text-xl font-bold mb-4\">Money Back Guarantee<\/div>\n\t\t\t<div class=\"text-center text-sm\">Subheadeing text goes here about value prop listed<\/div>\n\t\t<\/div>\n\t\t<div class=\"p-4 w-full lg:w-1\/3\">\n\t\t\t<img class=\"mx-auto\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0507\/0562\/9354\/files\/panel-two.png?v=1622410258\">\n\t\t\t<div class=\"text-center text-xl font-bold mb-4\">Gentle on teeth and gums<\/div>\n\t\t\t<div class=\"text-center text-sm\">Subheadeing text goes here about value prop listed<\/div>\n\t\t<\/div>\n\t\t<div class=\"p-4 w-full lg:w-1\/3\">\n\t\t\t<img class=\"mx-auto\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0507\/0562\/9354\/files\/panel-three.png?v=1622410257\">\n\t\t\t<div class=\"text-center text-xl font-bold mb-4\">Simple 3 Step Process<\/div>\n\t\t\t<div class=\"text-center text-sm\">Subheadeing text goes here about value prop listed<\/div>\n\t\t<\/div>\n\t<\/div>\n<\/div>",
+            "html_horizontal_alignment": "justify-center",
+            "html_vertical_alignment": "items-center"
+          }
+        }
+      },
+      "block_order": [
+        "7c34e5d7-eb35-49f4-9fda-0da3709c4a6b"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_color": "#000000",
+        "section_heading_color_mobile": "#000000",
+        "section_heading_fontsize": "text-5xl",
+        "section_heading_fontsize_mobile": "text-3xl",
+        "section_heading_fontweight": "font-bold",
+        "section_heading_text_alignment": "text-left",
+        "section_sub_heading": "",
+        "section_sub_heading_color": "#000000",
+        "section_sub_heading_color_mobile": "#000000",
+        "section_sub_heading_fontsize": "text-5xl",
+        "section_sub_heading_fontsize_mobile": "text-3xl",
+        "section_sub_heading_fontweight": "font-normal",
+        "section_sub_heading_text_alignment": "text-left",
+        "section_item_widths": "",
+        "section_blocks_horizontal_alignment": "justify-center",
+        "section_blocks_vertical_alignment": "items-center",
+        "min_height_enabled": true,
+        "section_layout_direction": "normal",
+        "background_image_enabled": false,
+        "background_video_enabled": false,
+        "background_video_type": "youtube",
+        "background_video_id": "",
+        "background_color_enabled": false,
+        "background_color": "#ffffff",
+        "background_curve_enabled": false,
+        "background_curve": "right",
+        "background_two_tone_enabled": false,
+        "background_two_tone_color": "#BFFAEA",
+        "tabs_enabled": false,
+        "slider_enabled": false,
+        "slider_enable_autoplay": true,
+        "slider_autoplay_time": 5
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "headline": "Stay in the Lumos Loop",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos hic praesentium recusandae dolores odio animi deleniti officia cum itaque.",
+        "success": "Thank you for signing up!"
+      }
+    }
+  },
+  "order": [
+    "cart",
+    "section",
+    "newsletter"
+  ]
+}

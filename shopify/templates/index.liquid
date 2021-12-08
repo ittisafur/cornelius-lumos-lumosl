@@ -1,0 +1,10 @@
+{% if shop.metafields.global.h1_text %}
+  <h1>{{ shop.metafields.global.h1_text | escape }}</h1>
+{% else %}
+  <h1>Professional & Custom Teeth Whitening Solution</h1>
+{% endif %}
+{{ content_for_index }}
+
+<style>
+  h1 { color: white; }
+</style>
