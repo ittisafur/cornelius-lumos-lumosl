@@ -5,8 +5,6 @@
   <div v-if="featured" class="rounded-full p-4 absolute top-0 left-0 dark-green-fill">
     Featured
   </div>
-  Run Me
-  
     <div
       class="article-item__image-container h-64 relative"
     >

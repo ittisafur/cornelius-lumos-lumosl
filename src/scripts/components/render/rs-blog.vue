@@ -34,9 +34,40 @@
           </div>
         </div>
       </div>
+
+      <!-- <div class="flex-none md:flex md:space-x-5 space-x-0 my-2 md:my-5 justify-center items-center"> -->
+
+      <!--   <div class="md:w-2/3 w-auto"> -->
+      <!--     <img :src="featuredArticle.image.src" :alt="featuredArticle.title" class="w-full"> -->
+      <!--   </div>  -->
+
+      <!--   <div class="md:w-1/3 w-auto"> -->
+      <!--     <p class="md:mb-5 mb-0 text-sm text-black text-opacity-50 ">{{new Date(featuredArticle.published_at).toDateString()}}</p>  -->
+      <!--     <h2 class="text-4xl tracking-tight mb-0 md:mb-4">{{featuredArticle.title}}</h2>  -->
+      <!--     <p v-html="featuredArticle.body_html" class=" leading-6 line-clamp-3 mb-1 md:mb-4"></p> -->
+      <!--     <a :href="articleLink" class="text-purple-400 md:flex-none flex-none">Read More</a> -->
+      <!--   </div> -->
+
+      <!-- </div> -->
+
+      <div class="grid grid-cols-1 md:grid-cols-12 md:mb-8 mb-2 space-x-2 md:space-x-5 gap-5 h-80 items-center">
+
+        <div class="col-span-6 w-full h-full">
+          <img :src="featuredArticle.image.src" :alt="featuredArticle.title" class="w-full h-full object-cover">
+        </div> 
+
+        <div class="col-span-6">
+          <p class="md:mb-5 mb-0 text-sm text-black text-opacity-50 ">{{new Date(featuredArticle.published_at).toDateString()}}</p> 
+          <h2 class="text-5xl tracking-tight mb-0 md:mb-4">{{featuredArticle.title}}</h2> 
+          <p v-html="featuredArticle.body_html" class=" leading-6 line-clamp-3 mb-1 md:mb-4"></p>
+          <a :href="articleLink" class="text-purple-400 md:flex-none flex-none">Read More</a>
+        </div>
+
+      </div>
+
       <div
         ref="infiniteScroll"
-        class="blog__articles grid grid-cols-1 lg:grid-cols-2 gap-16 auto-rows-fr"
+        class="blog__articles grid grid-cols-1 lg:grid-cols-3 gap-16 auto-rows-fr"
         :class="{ loaded: loaded }"
       >
         <template v-for="(article,i) in paginatedArticles">
@@ -115,6 +146,12 @@
       ...mapGetters({
         windowWidth: 'window-width/WindowWidth'
       }),
+      articleLink: function(){
+        return `${window?.location?.pathname}/${this.featuredArticle.handle}`
+        },
+      featuredArticle: function(){
+          return Object.values(this.paginatedArticles)[0];
+      },
       gridCount: function () {
         return this.blog.articles_count // + this.numEditorialImages;
       },

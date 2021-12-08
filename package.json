@@ -35,6 +35,7 @@
     "download:dev": "shopify-themekit --env=dev download --config .config/shopify/shopify.dev.yml"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.2.2",
     "@vimeo/player": "^2.15.0",
     "axios": "^0.21.1",
     "intersection-observer": "^0.12.0",
