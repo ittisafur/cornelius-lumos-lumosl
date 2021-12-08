@@ -50,15 +50,22 @@
 
       <!-- </div> -->
 
-      <div class="grid grid-cols-1 md:grid-cols-12 md:mb-8 mb-2 space-x-2 md:space-x-5 gap-5 h-80 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 md:pb-8 pb-5 space-x-2 md:space-x-5 gap-5 lg:h-80 h-full items-center ">
 
-        <div class="col-span-6 w-full h-full">
+        <div class="col-span-6 w-full h-full relative">
+          <div class="
+          lumos__outline rounded-full dark-green-fill h-20
+          w-20 absolute -top-9 -left-6 text-sm flex justify-center
+          items-center text-white uppercase
+        ">
+            Featured
+          </div>
           <img :src="featuredArticle.image.src" :alt="featuredArticle.title" class="w-full h-full object-cover">
         </div> 
 
         <div class="col-span-6">
-          <p class="md:mb-5 mb-0 text-sm text-black text-opacity-50 ">{{new Date(featuredArticle.published_at).toDateString()}}</p> 
-          <h2 class="text-5xl tracking-tight mb-0 md:mb-4">{{featuredArticle.title}}</h2> 
+          <p class="md:mb-5 mb-2 text-sm text-black text-opacity-50 ">{{new Date(featuredArticle.published_at).toDateString()}}</p> 
+          <h2 class="md:text-4xl text-3xl tracking-tight mb-2 md:mb-4">{{featuredArticle.title}}</h2> 
           <p v-html="featuredArticle.body_html" class=" leading-6 line-clamp-3 mb-1 md:mb-4"></p>
           <a :href="articleLink" class="text-purple-400 md:flex-none flex-none">Read More</a>
         </div>
@@ -243,6 +250,11 @@
   $mobile: 767px;
   $border-color: #e2e2e2;
   $desktop-up: 1024px;
+
+  .lumos__outline{
+      outline: 2px #BFFAEA;
+    outline-style: auto;
+  }
 
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
